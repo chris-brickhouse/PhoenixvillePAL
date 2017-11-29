@@ -11,6 +11,17 @@
         <!-- styles -->
         <style>
             /* styles go here */
+
+            /* reset */
+            html, body, ul, li, div, span, em, strong {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+
             .bordered {
                 border:1px solid #c0c0c0;padding:1px;
             }
@@ -44,6 +55,10 @@
             
             <div class="bordered-child">
                 this is a child div.
+
+                <div class="bordered-third-level">
+                    this is a third level child.
+                </div>
             </div>
         </div>
 
