@@ -11,7 +11,9 @@
         <!-- styles -->
         <style>
             /* styles go here */
-
+            .bordered {
+                border:1px solid #c0c0c0;padding:1px;
+            }
         </style>
 
         <!-- linked styles -->
@@ -33,9 +35,17 @@
              this is quoted.
          </blockquote><br /><br />
 
-         <div>
-             This is a div tag. this is for creating structure. this is block by default. we will style this later.
-         </div>
+        <div style="border:1px solid #c0c0c0;padding:1px;">
+            This is a div tag. this is for creating structure. this is block by default. we will style this later.
+        </div>
+
+         <div class="bordered">
+            This is a div tag. this is for creating structure. this is block by default. we will style this later.
+            
+            <div class="bordered-child">
+                this is a child div.
+            </div>
+        </div>
 
          <span>
              This is a span tag. it is inline by default.
