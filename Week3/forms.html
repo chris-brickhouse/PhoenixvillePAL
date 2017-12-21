@@ -1,0 +1,67 @@
+<html>
+
+<head>
+    <title>forms</title>
+    <style>
+        body {
+            background-color: #616486;
+        }
+        
+        form {
+            margin: 20px;
+        }
+        
+        #first_name {
+            background-color: red;
+            color: white;
+        }
+        
+        #nav {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        
+        #nav li {
+            list-style-type: none;
+            float: left;
+        }
+        
+        #nav li a {
+            padding: 10px;
+            margin: 1px;
+            border: 1px solid #c0c0c0;
+            background: #efefef;
+        }
+        
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/" method="get" id="first_form">
+
+        <ul id="nav">
+            <li><a href="/">Home</a></li>
+            <li><a href="/records">Records</a></li>
+            <li><a href="/cds">CDs</a></li>
+        </ul>
+        <br class="clear" /><br class="clear" />
+
+        <label for="first_name">First Name</label><br>
+        <input type="text" id="first_name" name="first_name" placeholder="first name" /><br>
+
+        <label for="state">State</label><br>
+        <select id="state" name="state">
+            <option value="">Select State</option>
+            <option value="PA">Pennsylvania</option>   
+            <option value="NJ">New Jersey</option>
+        </select><br />
+
+        <button>go</button>
+    </form>
+</body>
+
+</html>
