@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>forms</title>
+    <style>
+
+        /* changed the background to a silver-blue color */        
+        body {            
+            background-color: #616486;
+            text-align:center; 
+        }
+        
+        form {
+            margin: 20px;
+        }
+
+        .container {
+            /* let's center the page */
+            width: 1024px;
+            margin: 0 auto;
+            text-align:left;
+
+        }
+
+        /* we changed the first name box to red */        
+        #first_name {
+            background-color: red;
+            color: white;
+        }
+
+        /* this is for the <ul> with the id #nav*/        
+        #nav {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* this is for all <li> inside the nav ul */        
+        #nav li {
+            list-style-type: none;
+            float: left;
+        }
+
+        /* all link tags inside the li tags of the nav */        
+        #nav li a {
+            padding: 10px;
+            margin: 1px;
+            border: 1px solid #c0c0c0;
+            background: #efefef;
+        }
+
+        /* clears floated items */        
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="/" method="get" id="first_form">
+
+            <!--- this is the nav element we made, it has three menu items.-->
+            <ul id="nav">
+                <li><a href="/">Home</a></li>
+                <li><a href="/records">Records</a></li>
+                <li><a href="/cds">CDs</a></li>
+            </ul>
+            <br class="clear" /><br class="clear" />
+
+            <!-- this is the first name text box that we turned red -->
+            <label for="first_name">First Name</label><br>
+            <input type="text" id="first_name" name="first_name" placeholder="first name" /><br>
+
+            <!-- this is the dropdown we made with pa and nj in it as items. -->
+            <label for="state">State</label><br>
+            <select id="state" name="state">
+                <option value="">Select State</option>
+                <option value="PA">Pennsylvania</option>   
+                <option value="NJ">New Jersey</option>
+            </select><br />
+
+            <button>go</button>
+        </form>
+    </div>
+</body>
+
+</html>

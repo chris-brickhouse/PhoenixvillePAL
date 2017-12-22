@@ -1,0 +1,79 @@
+<html>
+	<head>
+		<!-- this is the head tag. do not put the body inside the head. -->
+		<title>PAL Course</title>
+	</head>
+	
+
+	<style type="text/css">
+		/*
+			this week we began learning stylesheets. below are the styles for
+			a) all divs
+			b) the img tag with the id "my_img".
+			c) all tags with the class "div"
+			d) clear class, use this with "br"
+			e) class1 class, which can be applied to anything
+
+			- all classes have a period (.) in front: 
+			- all ids have a pound (#)
+			- all tag based classes have nothing (example, a)
+		*/
+
+		/* a) */
+		div {
+			background:#efefef;
+		}
+
+		/* b) */
+		#my_img{
+			padding:10px;
+			max-width:200px;
+			float:left;
+		}
+
+		/* c) */
+		.div {
+			padding:10px;
+			margin:10px;
+			border:1px solid #000;
+			width:300px;
+			height:100px;
+			float:left;
+		}
+
+		/* d) */
+		.clear {
+			clear:both;
+		}
+
+		/* e) */
+		.class1 {
+			background:#000 !important;
+			color:#fff;
+		}
+	</style>
+
+	<body>
+		<!-- this creates a link to "index1.html", which we called "page 2" -->
+		<a href="index1.html">my link</a>
+		<br class="clear">
+
+		<!-- this is the image we downloaded, the image should be in the same folder. this has the id "my_img" and has a matching style (b) in the style tag. -->
+		<img src="image1.jpg" id="my_img" />
+		<br class="clear" />
+
+		<!-- these div tags all have a class of "div", they match (c) from above. -->
+		<!-- all of these divs also match (a) in the styles because they are all div tags. -->
+		<div class="div">div1</div>
+		<div class="div">div1</div>
+		<!-- this also matches the "class1" class above (e) -->
+		<div class="div class1">div2</div>
+		<br class="clear">
+
+		<div class="div">div1</div>
+		<div class="div">div1</div>
+		<!-- this also matches the "class1" class above (e) -->
+		<div class="div class1">div2</div>
+	</body>
+
+</html>
