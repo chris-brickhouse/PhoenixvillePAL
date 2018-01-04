@@ -65,6 +65,21 @@
             background-color: #fff;
         }
     </style>
+    <script type="text/javascript">
+        // this function writes bottles to div id="#bottles_of_beer"
+        function writeBottle() {
+            for (i = 1; i <= 99; i++) {
+                // gets contents of #bottles_of_beer
+                var this_contents = document.getElementById('bottles_of_beer').innerHTML;
+                // appends contents to #bottles_of_beer
+                document.getElementById('bottles_of_beer').innerHTML = this_contents + i + " bottles of beer on the wall<br>";
+            }
+        }
+
+        window.onload = function() {
+            writeBottle();
+        }
+    </script>
 </head>
 
 <body>
@@ -78,6 +93,10 @@
         </ul>
 
         <br class="clear" /><br class="clear" />
+
+        <div id="bottles_of_beer">
+
+        </div>
 
         <form action="/" method="get" id="first_form">
 
