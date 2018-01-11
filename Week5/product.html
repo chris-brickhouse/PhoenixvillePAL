@@ -4,7 +4,9 @@
     <title>forms</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+    <!-- we moved the css to product.css -->
     <link href="product.css" rel="stylesheet" />
+    <!-- we moved the javascript to product.js -->
     <script src="product.js"></script>
 
 </head>
@@ -48,7 +50,7 @@
                     vestibulum ante rhoncus pulvinar. Phasellus rutrum sagittis ex, semper auctor nulla imperdiet id. Vivamus quis gravida mi, in convallis elit. Vestibulum commodo urna nec sollicitudin rhoncus.
                 </p>
 
-                <form action="/products.html" method="GET" onsubmit="return false">
+                <form action="/products.html" method="GET" onsubmit="return false" id="product_form">
                     <input type="hidden" id="inventory" value="66" />
                     <label for="qty">QTY</label>
                     <input id="qty" name="qty" value="0" placeholder="0" />

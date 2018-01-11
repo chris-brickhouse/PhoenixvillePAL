@@ -3,6 +3,7 @@
  body {
      background-color: #efefef;
      text-align: center;
+     /* we imported roboto font from google fonts */
      font-family: 'Roboto', Arial, Helvetica, sans-serif;
  }
  
@@ -68,6 +69,7 @@
  }
  
  #album_container div {
+     /* this adds styling to all divs inside album container */
      padding: 10px;
      float: left;
      min-height: 300px;
