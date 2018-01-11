@@ -11,29 +11,27 @@ function addToCart() {
     var email = document.getElementById('email').value;
     var err_str = [];
 
+
     try {
         if (email == '') {
             err_str.push('Please fill out email.');
-            return false;
         }
 
         if (inventory < qty) {
             err_str.push("We don't have that many");
-            return false;
         } else {
             alert('This has been added.')
         }
 
         if (err_str.length > 0) {
             alert(err_str.join(''));
+            return false;
         }
+
+        console.log(err_msg);
 
     } catch (e) {
         alert(e.message);
     }
-
-
-
-
 
 }
