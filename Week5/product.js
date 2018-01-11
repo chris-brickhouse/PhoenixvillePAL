@@ -19,13 +19,13 @@ function addToCart() {
 
         if (inventory < qty) {
             err_str.push("We don't have that many");
-        } else {
-            alert('This has been added.')
         }
 
         if (err_str.length > 0) {
             alert(err_str.join(''));
             return false;
+        } else {
+            alert('success');
         }
 
         console.log(err_msg);
