@@ -2,96 +2,11 @@
 
 <head>
     <title>forms</title>
-    <style>
-        /* changed the background to a light grey */
-        
-        body {
-            background-color: #efefef;
-            text-align: center;
-        }
-        
-        .container {
-            width: 1024px;
-            /* top, left, bottom, right (clockwise ) */
-            /* margin: 0 auto 0 auto; */
-            /* if top and bottom and left and right are same, the below works */
-            margin: 0 auto;
-            text-align: left;
-            border: 1px solid #c0c0c0;
-            padding: 10px;
-            border-radius: 10px;
-        }
-        
-        form {
-            margin: 20px;
-        }
-        /* we changed the first name box to red */
-        
-        #first_name {
-            background-color: red;
-            color: white;
-        }
-        /* this is for the <ul> with the id #nav*/
-        
-        #nav {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-        /* this is for all <li> inside the nav ul */
-        
-        #nav li {
-            list-style-type: none;
-            float: left;
-        }
-        /* all link tags inside the li tags of the nav */
-        
-        #nav li a {
-            padding: 10px;
-            margin: 1px;
-            border: 1px solid #c0c0c0;
-            background: #efefef;
-        }
-        
-        #nav li a:hover {
-            background-color: #ff0000;
-            color: #fff;
-        }
-        /* clears floated items */
-        
-        .clear {
-            clear: both;
-        }
-        
-        .container #first_form {
-            background-color: #fff;
-        }
-        
-        #album_container {
-            margin: 25px 10px 10px 10px;
-        }
-        
-        #album_container div {
-            padding: 10px;
-            float: left;
-            min-height: 300px;
-        }
-        
-        #album_container div.left-album {
-            width: 280px;
-        }
-        
-        #album_container div.right-album {
-            width: 650px;
-        }
-    </style>
-    <script type="text/javascript">
-        // this runs when the page is completely loaded
-        /*window.onload = function() {
-            writeBottle();
-            addNumbers();
-        }*/
-    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+    <link href="product.css" rel="stylesheet" />
+    <script src="product.js"></script>
+
 </head>
 
 <body>
@@ -103,15 +18,47 @@
             <li><a href="/">Home</a></li>
             <li><a href="/records">Records</a></li>
             <li><a href="/cds">CDs</a></li>
+            <li><a href="/users"><i class="fas fa-users"></i> Users</a></li>
         </ul>
         <br class="clear" />
 
         <div id="album_container">
             <div class="left-album">
                 <img src="images/image1.png" />
+                <br class="clear" />
+                <em class="album-desc">
+                    <i class="fas fa-music fa-right"></i>
+                    this is an album
+                </em>
             </div>
             <div class="right-album">
-                2
+                <h1>Run The Jewels - 3</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere eget diam quis viverra. Aenean hendrerit sodales turpis. Cras eu est faucibus, ultrices odio sed, aliquet eros. Donec laoreet ligula sapien. Maecenas ultrices porta hendrerit. Proin
+                    ante arcu, eleifend nec imperdiet eu, molestie quis sem. Ut scelerisque non ligula a pretium. Maecenas facilisis laoreet facilisis. Ut et felis id dolor placerat porta.
+                </p>
+                <p>
+                    Sed a urna ut erat iaculis lacinia. Nunc tempus non sem blandit porta. Vestibulum non dolor velit. Suspendisse mauris quam, gravida a euismod vitae, rutrum ac nisl. Donec sollicitudin, sapien ac sagittis tincidunt, erat massa sagittis felis, ac accumsan
+                    sem sem ut lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper lorem ante, vel feugiat eros sollicitudin ac. Maecenas quis iaculis leo. Aliquam vel erat accumsan,
+                    tempor ipsum in, imperdiet odio. Integer vulputate hendrerit lectus sollicitudin gravida. Fusce eleifend bibendum nulla. Vivamus elementum magna metus, et auctor sapien tincidunt nec. Morbi quis quam imperdiet, sodales ex et, tincidunt
+                    mi. Praesent non aliquet velit. Praesent ac dapibus justo, sed volutpat odio.
+                </p>
+                <p>
+                    Morbi rutrum pretium lectus, ut gravida velit. Sed dictum, nunc ut egestas dictum, arcu erat fermentum nisi, eu eleifend ipsum nulla nec est. Nulla convallis consectetur nisi a eleifend. Integer vulputate urna eget gravida varius. Aliquam vehicula odio
+                    vestibulum ante rhoncus pulvinar. Phasellus rutrum sagittis ex, semper auctor nulla imperdiet id. Vivamus quis gravida mi, in convallis elit. Vestibulum commodo urna nec sollicitudin rhoncus.
+                </p>
+
+                <form action="/products.html" method="GET" onsubmit="return false">
+                    <input type="hidden" id="inventory" value="66" />
+                    <label for="qty">QTY</label>
+                    <input id="qty" name="qty" value="0" placeholder="0" />
+                    <br class="clear">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" />
+                    <br class="clear" />
+                    <button id="buy" onclick="addToCart()">BUY</button>
+
+                </form>
             </div>
             <br class="clear" />
         </div>
