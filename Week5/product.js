@@ -21,6 +21,9 @@ function addToCart() {
             err_str.push("We don't have that many");
         }
 
+        blarga();
+        console.log(err_msg);
+
         if (err_str.length > 0) {
             alert(err_str.join(''));
             return false;
@@ -28,7 +31,7 @@ function addToCart() {
             alert('success');
         }
 
-        console.log(err_msg);
+
 
     } catch (e) {
         alert(e.message);
