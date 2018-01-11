@@ -66,6 +66,24 @@
         .container #first_form {
             background-color: #fff;
         }
+        
+        #album_container {
+            margin: 25px 10px 10px 10px;
+        }
+        
+        #album_container div {
+            padding: 10px;
+            float: left;
+            min-height: 300px;
+        }
+        
+        #album_container div.left-album {
+            width: 280px;
+        }
+        
+        #album_container div.right-album {
+            width: 650px;
+        }
     </style>
     <script type="text/javascript">
         // this runs when the page is completely loaded
@@ -86,24 +104,18 @@
             <li><a href="/records">Records</a></li>
             <li><a href="/cds">CDs</a></li>
         </ul>
+        <br class="clear" />
 
+        <div id="album_container">
+            <div class="left-album">
+                <img src="images/image1.png" />
+            </div>
+            <div class="right-album">
+                2
+            </div>
+            <br class="clear" />
+        </div>
 
-        <form action="/" method="get" id="first_form">
-
-            <!-- this is the first name text box that we turned red -->
-            <label for="first_name">First Name</label><br>
-            <input type="text" id="first_name" name="first_name" placeholder="first name" /><br>
-
-            <!-- this is the dropdown we made with pa and nj in it as items. -->
-            <label for="state">State</label><br>
-            <select id="state" name="state">
-                <option value="">Select State</option>
-                <option value="PA">Pennsylvania</option>   
-                <option value="NJ">New Jersey</option>
-            </select><br />
-
-            <button>go</button>
-        </form>
     </div>
 
 </body>

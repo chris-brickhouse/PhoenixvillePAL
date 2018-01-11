@@ -68,28 +68,11 @@
         }
     </style>
     <script type="text/javascript">
-        // this function writes bottles to div id="#bottles_of_beer"
-        function writeBottle() {
-            for (var i = 1; i <= 99; i++) {
-                // gets contents of #bottles_of_beer
-                var this_contents = document.getElementById('bottles_of_beer').innerHTML;
-                // appends contents to #bottles_of_beer
-                document.getElementById('bottles_of_beer').innerHTML = this_contents + i + " bottles of beer on the wall<br>";
-            }
-        }
-
-        // this gets the number inside the div with id #add_number_1 and #add_number_2 and adds them together
-        function addNumbers() {
-            var total = parseInt(document.getElementById('add_number_1').innerText) + parseInt(document.getElementById('add_number_2').innerText);
-            // pops up alert
-            alert('the total is ' + total);
-        }
-
         // this runs when the page is completely loaded
-        window.onload = function() {
+        /*window.onload = function() {
             writeBottle();
             addNumbers();
-        }
+        }*/
     </script>
 </head>
 
@@ -104,41 +87,7 @@
             <li><a href="/cds">CDs</a></li>
         </ul>
 
-        <br class="clear" /><br class="clear" />
 
-        <!-- this is the container for the bottles of beer script -->
-        <div id="bottles_of_beer">
-
-        </div>
-
-        <br class="clear" /><br class="clear" />
-
-        <!-- div with first number to add-->
-        <div id="add_number_1">
-            10239
-        </div>
-
-        <!-- div with second number to add-->
-        <div id="add_number_2">
-            387
-        </div>
-
-        <form action="/" method="get" id="first_form">
-
-            <!-- this is the first name text box that we turned red -->
-            <label for="first_name">First Name</label><br>
-            <input type="text" id="first_name" name="first_name" placeholder="first name" /><br>
-
-            <!-- this is the dropdown we made with pa and nj in it as items. -->
-            <label for="state">State</label><br>
-            <select id="state" name="state">
-                <option value="">Select State</option>
-                <option value="PA">Pennsylvania</option>   
-                <option value="NJ">New Jersey</option>
-            </select><br />
-
-            <button>go</button>
-        </form>
     </div>
 
 </body>
