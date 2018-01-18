@@ -64,6 +64,26 @@
      background-color: #fff;
  }
  
+ #products_container {
+     margin-top: 25px;
+ }
+ 
+ #products_container {
+     background-color: rgb(131, 130, 130);
+     border: 1px solid #c0c0c0;
+ }
+ 
+ #products_container #products_list td {
+     vertical-align: top;
+     border: 1px solid #c0c0c0;
+     background-color: #fff;
+     padding: 10px;
+ }
+ 
+ #products_container #products_list td img {
+     max-height: 75px;
+ }
+ 
  #album_container {
      margin: 25px 10px 10px 10px;
      display: none;
