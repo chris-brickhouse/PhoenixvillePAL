@@ -31,6 +31,9 @@ if ('withCredentials' in req) {
 6) square at bottom of page with cart total, add prices together
 7) complete checkout process with post to external processor that will return "true" and a confirm number
 8) display confirm to customer, reset page
+9) introduct jquery
+10) introduce bootstrap
+11) convert layouts to bootrap + raw js to jquery
 */
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
