@@ -1,3 +1,37 @@
+/* 
+    
+TODO:
+0) add logo to page. create test logo and add footer to make it official site.
+1) introduce JSON
+2) retrieve data from external file, http://www.stereokiller.com/test_json.cfm
+-- this page will be able to take url "id", if not list all
+-- {products: { product: { id: x, name: 'test' }}}
+3) load tables with JSON
+4) load product from JSON
+5) load external site via CORS (below)
+
+var req = new XMLHttpRequest();
+
+// Feature detection for CORS
+if ('withCredentials' in req) {
+    req.open('GET', 'http://api.foo.com/products', true);
+    // Just like regular ol' XHR
+    req.onreadystatechange = function() {
+        if (req.readyState === 4) {
+            if (req.status >= 200 && req.status < 400) {
+                // JSON.parse(req.responseText) etc.
+            } else {
+                // Handle error case
+            }
+        }
+    };
+    req.send();
+}
+5) add prices
+6) square at bottom of page with cart total, add prices together
+7) complete checkout process with post to external processor that will return "true" and a confirm number
+8) display confirm to customer, reset page
+*/
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
