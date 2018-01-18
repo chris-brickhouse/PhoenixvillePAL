@@ -64,16 +64,15 @@
      background-color: #fff;
  }
  
+ /* product container styles -*/
  #products_container {
-     margin-top: 25px;
- }
- 
- #products_container {
+    margin-top: 25px;
      background-color: rgb(131, 130, 130);
      border: 1px solid #c0c0c0;
      display: block;
  }
- 
+
+ /* product container cells */
  #products_container #products_list td {
      vertical-align: top;
      border: 1px solid #c0c0c0;
@@ -81,10 +80,12 @@
      padding: 10px;
  }
  
+ /* list images */
  #products_container #products_list td img {
      max-height: 75px;
  }
  
+ /* album container,  hidden by default */
  #album_container {
      margin: 25px 10px 10px 10px;
      display: none;
