@@ -1,5 +1,12 @@
 // this runs when the page is completely loaded
 
+String.prototype.left = function(len) {
+    return this.substring(0, len);
+}
+String.prototype.getId = function() {
+    return this.replace('button_', '');
+}
+
 album = null;
 product_list = null;
 
@@ -9,9 +16,15 @@ window.onload = function() {
 }
 
 function toggle() {
-    album.style.display = (album.style.display == 'block' ? 'none' : 'block');
-    console.log(product_list.style.display);
-    product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
+    var btns = document.getElementsByClassName('my_btn');
+
+    for (var i = 0; i < btns.length; i++) {
+        console.log(btns[i].id.getId());
+        btns[i].innerHTML = 'BUY NOW';
+    }
+
+    //album.style.display = (album.style.display == 'block' ? 'none' : 'block');
+    //product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
 }
 
 function addToCart() {
