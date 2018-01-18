@@ -71,6 +71,7 @@
  #products_container {
      background-color: rgb(131, 130, 130);
      border: 1px solid #c0c0c0;
+     display: block;
  }
  
  #products_container #products_list td {

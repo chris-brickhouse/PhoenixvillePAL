@@ -1,8 +1,18 @@
 // this runs when the page is completely loaded
-/*window.onload = function() {
-    writeBottle();
-    addNumbers();
-}*/
+
+album = null;
+product_list = null;
+
+window.onload = function() {
+    album = document.getElementById('album_container');
+    product_list = document.getElementById('products_container');
+}
+
+function toggle() {
+    album.style.display = (album.style.display == 'block' ? 'none' : 'block');
+    console.log(product_list.style.display);
+    product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
+}
 
 function addToCart() {
 
@@ -10,7 +20,7 @@ function addToCart() {
     var inventory = parseInt(document.getElementById('inventory').value);
     var qty = parseInt(document.getElementById('qty').value);
     var email = document.getElementById('email').value;
-    
+
     // this is an array, a structure that holds error message strings
     var err_str = [];
 
@@ -36,7 +46,7 @@ function addToCart() {
             alert(err_str.join(''));
             return false;
         } else {
-         
+
 
         }
 
