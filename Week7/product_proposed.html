@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>forms</title>
+    <title>{title}</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
     <!-- we moved the css to product.css -->
@@ -40,8 +40,8 @@
                     </tr>
                 </thead>
                 <!-- this has a head, above, and a body, below. this repeats a <tr> tag (row) for each product. each cell <td> has a value. -->
-                <tbody>                   
-                   
+                <tbody>
+
                 </tbody>
             </table>
         </div>
@@ -51,7 +51,7 @@
             <div class="left-album">
                 <img src="images/image1.png" id="album_img" />
                 <br class="clear" />
-                <em class="album-desc" >
+                <em class="album-desc">
                         <!-- this is a font awesome icon -->
                         <i class="fas fa-music fa-right"></i>
                         <span id="album"></span>                       
@@ -62,6 +62,8 @@
                 <p id="album_desc"></p>
                 <h3 id="album_price"></h3>
 
+                <div id="album_video"></div>
+                <br class="clear" />
                 <!-- this form will let you buy items. -->
                 <form action="/products.html" method="GET" onsubmit="return false" id="product_form">
                     <input type="hidden" id="inventory" value="66" />
@@ -81,8 +83,7 @@
     </div>
 
     <div id="cart">
-        <i class="fas fa-shopping-cart"></i>
-        Cart Total: $<span id="cart_total">0</span>
+        <i class="fas fa-shopping-cart"></i> Cart Total: $<span id="cart_total">0</span>
     </div>
 </body>
 
