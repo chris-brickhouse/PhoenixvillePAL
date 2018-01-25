@@ -1,3 +1,4 @@
+// this object holds a list of products with images, videos, etc.
 var products = [
     { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
     { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
@@ -5,9 +6,9 @@ var products = [
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
-        return this.substring(0, len);
-    }
-    // will get the id from the buttons.
+    return this.substring(0, len);
+}
+// will get the id from the buttons.
 String.prototype.getId = function() {
     return this.replace('button_', '');
 }
@@ -26,9 +27,11 @@ window.onload = function() {
     album = document.getElementById('album_container');
     product_list = document.getElementById('products_container');
 
+    // make reference to the body of the table to fill with data
     var products_table_tbody = document.getElementById('products_list').getElementsByTagName('tbody')[0];
     var products_string = [];
 
+    // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
         products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].price + '</td><td><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn">View</button></td></tr>');
     }
@@ -46,8 +49,9 @@ function loadProduct(id, back) {
 
     // sets the display of the product page to the opposite of what it is
     product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
-
+    
     if (!back) {
+        // if not back button, fill html template with data from line 2 based on ID passed from the buttons we created in line 35
         document.title = products[id].name + ' - ' + products[id].album + ' - ' + products[id].price;
         document.getElementById('album_img').src = products[id].img;
         document.getElementById('album').innerText = products[id].album;
