@@ -63,29 +63,33 @@
  .container #first_form {
      background-color: #fff;
  }
- 
  /* product container styles -*/
+ 
  #products_container {
-    margin-top: 25px;
+     margin-top: 25px;
      background-color: rgb(131, 130, 130);
      border: 1px solid #c0c0c0;
      display: block;
  }
-
+ 
+ #products_container #products_list {
+     width: 100%;
+ }
  /* product container cells */
+ 
  #products_container #products_list td {
      vertical-align: top;
      border: 1px solid #c0c0c0;
      background-color: #fff;
      padding: 10px;
  }
- 
  /* list images */
+ 
  #products_container #products_list td img {
      max-height: 75px;
  }
- 
  /* album container,  hidden by default */
+ 
  #album_container {
      margin: 25px 10px 10px 10px;
      display: none;
@@ -111,4 +115,16 @@
  
  #album_container div.right-album {
      width: 650px;
+ }
+ 
+ #cart {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 150px;
+     padding: 20px;
+     margin: 15px;
+     border: 1px solid #c0c0c0;
+     background: #efefef;
+     border-radius: 10px;
  }

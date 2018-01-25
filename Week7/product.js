@@ -1,46 +1,13 @@
-/* 
-    
-TODO:
-0) add logo to page. create test logo and add footer to make it official site.
-1) introduce JSON
-2) retrieve data from external file, http://www.stereokiller.com/test_json.cfm
--- this page will be able to take url "id", if not list all
--- {products: { product: { id: x, name: 'test' }}}
-3) load tables with JSON
-4) load product from JSON
-5) load external site via CORS (below)
-
-var req = new XMLHttpRequest();
-
-// Feature detection for CORS
-if ('withCredentials' in req) {
-    req.open('GET', 'http://api.foo.com/products', true);
-    // Just like regular ol' XHR
-    req.onreadystatechange = function() {
-        if (req.readyState === 4) {
-            if (req.status >= 200 && req.status < 400) {
-                // JSON.parse(req.responseText) etc.
-            } else {
-                // Handle error case
-            }
-        }
-    };
-    req.send();
-}
-5) add prices
-6) square at bottom of page with cart total, add prices together
-7) complete checkout process with post to external processor that will return "true" and a confirm number
-8) display confirm to customer, reset page
-9) introduct jquery
-10) introduce bootstrap
-11) convert layouts to bootrap + raw js to jquery
-*/
+var products = [
+    { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
+    { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
+];
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
-    return this.substring(0, len);
-}
-// will get the id from the buttons.
+        return this.substring(0, len);
+    }
+    // will get the id from the buttons.
 String.prototype.getId = function() {
     return this.replace('button_', '');
 }
@@ -48,6 +15,9 @@ String.prototype.getId = function() {
 // global variables make it easy to change these objects.
 album = null;
 product_list = null;
+cart = null;
+cart_total = null;
+current_product_id = null;
 
 // runs when the page is completely loaded
 window.onload = function() {
@@ -55,11 +25,21 @@ window.onload = function() {
     // sets the global vars when the page loads.
     album = document.getElementById('album_container');
     product_list = document.getElementById('products_container');
+
+    var products_table_tbody = document.getElementById('products_list').getElementsByTagName('tbody')[0];
+    var products_string = [];
+
+    for (var i = 0; i < products.length; i++) {
+        products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].price + '</td><td><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn">View</button></td></tr>');
+    }
+
+    console.log(products_string.join(''));
+
 }
 
 function toggle() {
     // toggles the product page 
-    
+
     /* this is all hidden. this was to display how to loop through classes. 
     var btns = document.getElementsByClassName('my_btn');
     for (var i = 0; i < btns.length; i++) {

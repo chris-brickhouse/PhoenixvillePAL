@@ -32,53 +32,13 @@
                         <th>&nbsp;</th>
                         <th>Item</th>
                         <th>Desc</th>
+                        <th>Price</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <!-- this has a head, above, and a body, below. this repeats a <tr> tag (row) for each product. each cell <td> has a value. -->
                 <tbody>
-                    <tr>
-                        <td><img src="Images/image1.png"></td>
-                        <td>Run The Jewels</td>
-                        <td>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere eget diam quis viverra. Aenean hendrerit sodales turpis. Cras eu est faucibus, ultrices odio sed, aliquet eros. Donec laoreet ligula sapien. Maecenas ultrices porta hendrerit. Proin
-                                ante arcu, eleifend nec imperdiet eu, molestie quis sem. Ut scelerisque non ligula a pretium. Maecenas facilisis laoreet facilisis. Ut et felis id dolor placerat porta.
-                            </p>
-                            <p>
-                                Sed a urna ut erat iaculis lacinia. Nunc tempus non sem blandit porta. Vestibulum non dolor velit. Suspendisse mauris quam, gravida a euismod vitae, rutrum ac nisl. Donec sollicitudin, sapien ac sagittis tincidunt, erat massa sagittis felis, ac accumsan
-                                sem sem ut lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper lorem ante, vel feugiat eros sollicitudin ac. Maecenas quis iaculis leo. Aliquam vel
-                                erat accumsan, tempor ipsum in, imperdiet odio. Integer vulputate hendrerit lectus sollicitudin gravida. Fusce eleifend bibendum nulla. Vivamus elementum magna metus, et auctor sapien tincidunt nec. Morbi quis quam imperdiet,
-                                sodales ex et, tincidunt mi. Praesent non aliquet velit. Praesent ac dapibus justo, sed volutpat odio.
-                            </p>
-                            <p>
-                                Morbi rutrum pretium lectus, ut gravida velit. Sed dictum, nunc ut egestas dictum, arcu erat fermentum nisi, eu eleifend ipsum nulla nec est. Nulla convallis consectetur nisi a eleifend. Integer vulputate urna eget gravida varius. Aliquam vehicula odio
-                                vestibulum ante rhoncus pulvinar. Phasellus rutrum sagittis ex, semper auctor nulla imperdiet id. Vivamus quis gravida mi, in convallis elit. Vestibulum commodo urna nec sollicitudin rhoncus.
-                            </p>
-                        </td>
-                        <td><button id="button_1" onclick="toggle()" class="my_btn" my_id="1">View</button></td>
-                    </tr>
-                    <tr>
-                        <td><img src="Images/image2.png"></td>
-                        <td>The Menzingers</td>
-                        <td>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere eget diam quis viverra. Aenean hendrerit sodales turpis. Cras eu est faucibus, ultrices odio sed, aliquet eros. Donec laoreet ligula sapien. Maecenas ultrices porta hendrerit. Proin
-                                ante arcu, eleifend nec imperdiet eu, molestie quis sem. Ut scelerisque non ligula a pretium. Maecenas facilisis laoreet facilisis. Ut et felis id dolor placerat porta.
-                            </p>
-                            <p>
-                                Sed a urna ut erat iaculis lacinia. Nunc tempus non sem blandit porta. Vestibulum non dolor velit. Suspendisse mauris quam, gravida a euismod vitae, rutrum ac nisl. Donec sollicitudin, sapien ac sagittis tincidunt, erat massa sagittis felis, ac accumsan
-                                sem sem ut lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper lorem ante, vel feugiat eros sollicitudin ac. Maecenas quis iaculis leo. Aliquam vel
-                                erat accumsan, tempor ipsum in, imperdiet odio. Integer vulputate hendrerit lectus sollicitudin gravida. Fusce eleifend bibendum nulla. Vivamus elementum magna metus, et auctor sapien tincidunt nec. Morbi quis quam imperdiet,
-                                sodales ex et, tincidunt mi. Praesent non aliquet velit. Praesent ac dapibus justo, sed volutpat odio.
-                            </p>
-                            <p>
-                                Morbi rutrum pretium lectus, ut gravida velit. Sed dictum, nunc ut egestas dictum, arcu erat fermentum nisi, eu eleifend ipsum nulla nec est. Nulla convallis consectetur nisi a eleifend. Integer vulputate urna eget gravida varius. Aliquam vehicula odio
-                                vestibulum ante rhoncus pulvinar. Phasellus rutrum sagittis ex, semper auctor nulla imperdiet id. Vivamus quis gravida mi, in convallis elit. Vestibulum commodo urna nec sollicitudin rhoncus.
-                            </p>
-                        </td>
-                        <td><button id="button_2" class="my_btn" my_id="2">View</button></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
@@ -86,30 +46,26 @@
         <!-- this is the album page. this is hidden by default with the css #album_container selector. -->
         <div id="album_container">
             <div class="left-album">
-                <img src="images/image1.png" />
+                <img src="images/image1.png" id="album_img" />
                 <br class="clear" />
                 <em class="album-desc">
                         <!-- this is a font awesome icon -->
                         <i class="fas fa-music fa-right"></i>
-                        this is an album
+                        <span id="album"></span>
                     </em>
             </div>
             <div class="right-album">
-                <h1>Run The Jewels - 3</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere eget diam quis viverra. Aenean hendrerit sodales turpis. Cras eu est faucibus, ultrices odio sed, aliquet eros. Donec laoreet ligula sapien. Maecenas ultrices porta hendrerit. Proin
-                    ante arcu, eleifend nec imperdiet eu, molestie quis sem. Ut scelerisque non ligula a pretium. Maecenas facilisis laoreet facilisis. Ut et felis id dolor placerat porta.
-                </p>
-                <p>
-                    Sed a urna ut erat iaculis lacinia. Nunc tempus non sem blandit porta. Vestibulum non dolor velit. Suspendisse mauris quam, gravida a euismod vitae, rutrum ac nisl. Donec sollicitudin, sapien ac sagittis tincidunt, erat massa sagittis felis, ac accumsan
-                    sem sem ut lorem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Suspendisse ullamcorper lorem ante, vel feugiat eros sollicitudin ac. Maecenas quis iaculis leo. Aliquam vel erat accumsan,
-                    tempor ipsum in, imperdiet odio. Integer vulputate hendrerit lectus sollicitudin gravida. Fusce eleifend bibendum nulla. Vivamus elementum magna metus, et auctor sapien tincidunt nec. Morbi quis quam imperdiet, sodales ex et, tincidunt
-                    mi. Praesent non aliquet velit. Praesent ac dapibus justo, sed volutpat odio.
-                </p>
-                <p>
-                    Morbi rutrum pretium lectus, ut gravida velit. Sed dictum, nunc ut egestas dictum, arcu erat fermentum nisi, eu eleifend ipsum nulla nec est. Nulla convallis consectetur nisi a eleifend. Integer vulputate urna eget gravida varius. Aliquam vehicula odio
-                    vestibulum ante rhoncus pulvinar. Phasellus rutrum sagittis ex, semper auctor nulla imperdiet id. Vivamus quis gravida mi, in convallis elit. Vestibulum commodo urna nec sollicitudin rhoncus.
-                </p>
+                <!-- tag for album name -->
+                <h1 id="album_name"></h1>
+
+                <!-- album desc -->
+                <p id="album_desc"></p>
+
+                <!-- price -->
+                <h3 id="album_price"></h3>
+
+                <div id="album_video"></div>
+                <br class="clear" />
 
                 <!-- this form will let you buy items. -->
                 <form action="/products.html" method="GET" onsubmit="return false" id="product_form">
@@ -127,6 +83,10 @@
             <br class="clear" />
         </div>
 
+    </div>
+
+    <div id="cart">
+        <i class="fas fa-shopping-cart"></i> Items: <span id="cart_items"></span> | Total: <span id="cart_total"></span>
     </div>
 
 </body>
