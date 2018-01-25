@@ -33,26 +33,29 @@ window.onload = function() {
         products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].price + '</td><td><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn">View</button></td></tr>');
     }
 
-    console.log(products_string.join(''));
+    //console.log(products_string.join(''));
+    products_table_tbody.innerHTML = products_string.join('');
 
 }
 
-function toggle() {
+function loadProduct(id, back) {
     // toggles the product page 
-
-    /* this is all hidden. this was to display how to loop through classes. 
-    var btns = document.getElementsByClassName('my_btn');
-    for (var i = 0; i < btns.length; i++) {
-        console.log(btns[i].id.getId());
-        btns[i].innerHTML = 'BUY NOW';
-    }
-    */
 
     // sets the display of the list to the opposite of what it is
     album.style.display = (album.style.display == 'block' ? 'none' : 'block');
 
     // sets the display of the product page to the opposite of what it is
     product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
+
+    if (!back) {
+        document.title = products[id].name + ' - ' + products[id].album + ' - ' + products[id].price;
+        document.getElementById('album_img').src = products[id].img;
+        document.getElementById('album').innerText = products[id].album;
+        document.getElementById('album_name').innerText = products[id].name;
+        document.getElementById('album_desc').innerHTML = products[id].desc;
+        document.getElementById('album_price').innerText = '$' + products[id].price.toFixed(2);
+        document.getElementById('album_video').innerHTML = '<iframe width="550" height="350" src="' + products[id].video + '"></iframe>';
+    }
 }
 
 function addToCart() {
