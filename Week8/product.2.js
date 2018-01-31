@@ -21,20 +21,20 @@ cart_total = null;
 cart_items = null;
 current_product_id = null;
 
-// runs when the page is completely loaded
-window.onload = function() {
+// changed to document.ready
+$(document).ready(function() {
 
     // sets the global vars when the page loads.
-    album = document.getElementById('album_container');
-    product_list = document.getElementById('products_container');
+    album = $('#album_container');
+    product_list = $('#products_container');
     
     // set cart items to globals
-    cart = document.getElementById('cart');
-    cart_items = document.getElementById('cart_items');    
-    cart_total = document.getElementById('cart_total');
+    cart = $('#cart');
+    cart_items = $('#cart_items');    
+    cart_total = $('#cart_total');
 
     // make reference to the body of the table to fill with data
-    var products_table_tbody = document.getElementById('products_list').getElementsByTagName('tbody')[0];
+    var products_table_tbody = $('#products_list tbody');
     var products_string = [];
 
     // loop through products data from line 2 and create html string to insert into product list table.
@@ -43,29 +43,29 @@ window.onload = function() {
     }
 
     //console.log(products_string.join(''));
-    products_table_tbody.innerHTML = products_string.join('');
+    products_table_tbody.html(products_string.join(''));
 
-}
+});
 
 function loadProduct(id, back) {
     // toggles the product page 
 
     // sets the display of the list to the opposite of what it is
-    album.style.display = (album.style.display == 'block' ? 'none' : 'block');
+    album.toggle();
 
     // sets the display of the product page to the opposite of what it is
-    product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
+    product_list.toggle();
 
     // this loads the product from the data.
     if (!back) {
         current_product_id = id;
         document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
-        document.getElementById('album_img').src = products[id].img;
-        document.getElementById('album_name').innerText = products[id].name;
-        document.getElementById('album').innerText = products[id].album;
-        document.getElementById('album_desc').innerText = products[id].desc;
-        document.getElementById('album_price').innerText = '$' + products[id].price;
-        document.getElementById('album_video').innerHTML = '<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>';
+        $('#album_img').attr('src', products[id].img);
+        $('#album_name').text(products[id].name);
+        $('#album').text(products[id].album);
+        $('#album_desc').text(products[id].desc);
+        $('#album_price').text('$' + products[id].price);
+        $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
     } else {
         current_product_id = null;
     }
@@ -75,9 +75,9 @@ function loadProduct(id, back) {
 function addToCart(id) {
 
     // first, declare and set values to your variables from the form #product_form
-    var inventory = parseInt(document.getElementById('inventory').value);
-    var qty = parseInt(document.getElementById('qty').value);
-    var email = document.getElementById('email').value;
+    var inventory = parseInt($('#inventory').val());
+    var qty = parseInt($('#qty').val());
+    var email = $('#email').val();
 
     // this is an array, a structure that holds error message strings
     var err_str = [];
@@ -108,12 +108,12 @@ function addToCart(id) {
             return false;
         } else {
             // show cart box, which is fixed
-            cart.style.display = 'block';
-            cart_items.innerText = parseInt(cart_items.innerText) + qty;
-            cart_total.innerText = parseInt(cart_total.innerText) + (products[current_product_id].price * qty);
+            cart.show();
+            cart_items.text(parseInt(cart_items.text()) + qty);
+            cart_total.text(parseInt(cart_total.text()) + (products[current_product_id].price * qty));
             console.log(qty);
             
-            document.getElementById('qty').value = 0;            
+            $('#qty').val(0);            
             alert('product added to cart');
         }
 

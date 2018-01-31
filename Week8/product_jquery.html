@@ -4,10 +4,15 @@
     <title>forms</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+
+    <!-- we added jquery from the CDN. -->
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+
     <!-- we moved the css to product.css -->
-    <link href="product.1.css" rel="stylesheet" />
+    <link href="product.2.css" rel="stylesheet" />
+    
     <!-- we moved the javascript to product.js -->
-    <script src="product.1.js"></script>
+    <script src="product.2.js"></script>
 
 </head>
 
@@ -85,8 +90,8 @@
 
     </div>
 
-    <div id="cart">
-        <i class="fas fa-shopping-cart"></i> Items: <span id="cart_items">0</span> | Total: <span id="cart_total">0</span>
+    <div id="cart" class="hidden">
+        <i class="fas fa-shopping-cart"></i> Items: <span id="cart_items">0</span> | Total: $<span id="cart_total">0</span>
     </div>
 
 </body>
