@@ -1,0 +1,90 @@
+<html>
+        
+        <head>
+            <title>{title}</title>
+            <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+            <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
+            <!-- we moved the css to product.css -->
+            <link href="product_1.css" rel="stylesheet" />
+            <!-- we moved the javascript to product.js -->
+            <!-- this is for week 8
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+            -->
+            <script src="product_1.js"></script>
+        
+        </head>
+        
+        <body>
+            <!-- we added this container in week 4 -->
+            <div class="container">
+        
+                <!-- this is the nav element we made, it has three menu items. -->
+                <ul id="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/records">Records</a></li>
+                    <li><a href="/cds">CDs</a></li>
+                    <li><a href="/users"><i class="fas fa-users"></i> Users</a></li>
+                </ul>
+                <br class="clear" />
+        
+                <!-- this is the product container, the style for this is #product_container in product.css. this is shown by default. -->
+                <div id="products_container">
+                    <table id="products_list">
+                        <thead>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>Item</th>
+                                <th>Desc</th>
+                                <th>Price</th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <!-- this has a head, above, and a body, below. this repeats a <tr> tag (row) for each product. each cell <td> has a value. -->
+                        <tbody>
+        
+                        </tbody>
+                    </table>
+                </div>
+        
+                <!-- this is the album page. this is hidden by default with the css #album_container selector. -->
+                <div id="album_container">
+                    <div class="left-album">
+                        <img src="images/image1.png" id="album_img" />
+                        <br class="clear" />
+                        <em class="album-desc">
+                                <!-- this is a font awesome icon -->
+                                <i class="fas fa-music fa-right"></i>
+                                <span id="album"></span>                       
+                            </em>
+                    </div>
+                    <div class="right-album">
+                        <h1 id="album_name"></h1>
+                        <p id="album_desc"></p>
+                        <h3 id="album_price"></h3>
+        
+                        <div id="album_video"></div>
+                        <br class="clear" />
+                        <!-- this form will let you buy items. -->
+                        <form action="/products.html" method="GET" onsubmit="return false" id="product_form">
+                            <input type="hidden" id="inventory" value="66" />
+                            <label for="qty">QTY</label>
+                            <input id="qty" name="qty" value="0" placeholder="0" />
+                            <br class="clear">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" />
+                            <br class="clear" />
+                            <button id="buy" onclick="addToCart()">BUY</button>
+                            <button id="back_to_list" onclick="loadProduct(0, true)">Back</button>
+                        </form>
+                    </div>
+                    <br class="clear" />
+                </div>
+        
+            </div>
+        
+            <div id="cart">
+                <i class="fas fa-shopping-cart"></i> Cart Total: $<span id="cart_total">0</span>
+            </div>
+        </body>
+        
+        </html>
