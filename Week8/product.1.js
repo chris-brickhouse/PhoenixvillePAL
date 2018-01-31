@@ -6,9 +6,9 @@ var products = [
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
-    return this.substring(0, len);
-}
-// will get the id from the buttons.
+        return this.substring(0, len);
+    }
+    // will get the id from the buttons.
 String.prototype.getId = function() {
     return this.replace('button_', '');
 }
@@ -49,7 +49,7 @@ function loadProduct(id, back) {
 
     // sets the display of the product page to the opposite of what it is
     product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
-    
+
     if (!back) {
         // if not back button, fill html template with data from line 2 based on ID passed from the buttons we created in line 35
         document.title = products[id].name + ' - ' + products[id].album + ' - ' + products[id].price;
