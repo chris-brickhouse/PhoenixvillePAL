@@ -63,17 +63,23 @@
  .container #first_form {
      background-color: #fff;
  }
+ 
+ #products_add {
+     margin-top: 15px;
+ }
  /* product container styles -*/
  
  #products_container {
      margin-top: 25px;
-     background-color: rgb(131, 130, 130);
-     border: 1px solid #c0c0c0;
-     display: block;
+     width: 100%;
  }
  
  #products_container #products_list {
+     margin-top: 25px;
+     display: table;
      width: 100%;
+     background-color: #efefef;
+     border: 1px solid #c0c0c0;
  }
  /* product container cells */
  
@@ -128,7 +134,7 @@
      background: #efefef;
      border-radius: 10px;
  }
-
+ 
  .hidden {
      display: none;
  }

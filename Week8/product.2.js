@@ -27,14 +27,35 @@ $(document).ready(function() {
     // sets the global vars when the page loads.
     album = $('#album_container');
     product_list = $('#products_container');
-    
+
     // set cart items to globals
     cart = $('#cart');
-    cart_items = $('#cart_items');    
+    cart_items = $('#cart_items');
     cart_total = $('#cart_total');
 
+    refreshProducts();
+
+    // add button
+    $(document.body).on('click', '#add_btn', function() {
+        $('#products_add').removeClass('hidden');
+        $('#products_container').addClass('hidden');
+    });
+
+    // save button
+    $(document.body).on('click', '#save_btn', function() {
+        products.push({ id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });
+        refreshProducts();
+    });
+
+    // image preview function
+    $(document.body).on('click', '#preview_btn', function(e) {
+        e.preventDefault();
+        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
+    });
+});
+
+function refreshProducts() {
     // make reference to the body of the table to fill with data
-    var products_table_tbody = $('#products_list tbody');
     var products_string = [];
 
     // loop through products data from line 2 and create html string to insert into product list table.
@@ -43,9 +64,9 @@ $(document).ready(function() {
     }
 
     //console.log(products_string.join(''));
-    products_table_tbody.html(products_string.join(''));
-
-});
+    $('#products_list tbody').html(products_string.join(''));
+    console.log(products);
+}
 
 function loadProduct(id, back) {
     // toggles the product page 
@@ -112,8 +133,8 @@ function addToCart(id) {
             cart_items.text(parseInt(cart_items.text()) + qty);
             cart_total.text(parseInt(cart_total.text()) + (products[current_product_id].price * qty));
             console.log(qty);
-            
-            $('#qty').val(0);            
+
+            $('#qty').val(0);
             alert('product added to cart');
         }
 
