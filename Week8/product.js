@@ -22,17 +22,15 @@ cart_items = null;
 current_product_id = null;
 
 // runs when the page is completely loaded
-window.onload = function() {
-
+$(document).ready(function() {
     // sets the global vars when the page loads.
-    album = document.getElementById('album_container');
-    product_list = document.getElementById('products_container');
-    cart = document.getElementById('cart');
-    cart_items = document.getElementById('cart_items');
-    cart_total = document.getElementById('cart_total');
+    album = $('#album_container');
+    product_list = $('#products_container');
+    cart = $('#cart');
+    cart_items = $('#cart_items');
+    cart_total = $('#cart_total');
 
     // make reference to the body of the table to fill with data
-    var products_table_tbody = document.getElementById('products_list').getElementsByTagName('tbody')[0];
     var products_string = [];
 
     // loop through products data from line 2 and create html string to insert into product list table.
@@ -41,30 +39,33 @@ window.onload = function() {
     }
 
     //console.log(products_string.join(''));
-    products_table_tbody.innerHTML = products_string.join('');
+    $('#products_list tbody').html(products_string.join(''));
 
-}
+});
 
 function loadProduct(id, back) {
     // toggles the product page 
 
     // sets the display of the list to the opposite of what it is
-    album.style.display = (album.style.display == 'block' ? 'none' : 'block');
+    album.toggle();
 
     // sets the display of the product page to the opposite of what it is
-    product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
+    product_list.toggle();
 
     if (!back) {
         // if not back button, fill html template with data from line 2 based on ID passed from the buttons we created in line 35
         current_product_id = id;
         document.title = products[id].name + ' - ' + products[id].album + ' - ' + products[id].price;
-        document.getElementById('album_img').src = products[id].img;
-        document.getElementById('album').innerText = products[id].album;
-        document.getElementById('album_name').innerText = products[id].name;
-        document.getElementById('album_desc').innerHTML = products[id].desc;
-        document.getElementById('album_price').innerText = '$' + products[id].price.toFixed(2);
-        document.getElementById('album_video').innerHTML = '<iframe width="550" height="350" src="' + products[id].video + '"></iframe>';
+        $('#album_img').attr('src', products[id].img);
+        $('#album').text(products[id].album);
+        $('#album_name').text(products[id].name);
+        $('#album_desc').html(products[id].desc);
+        $('#album_price').text('$' + products[id].price.toFixed(2));
+        $('#album_video').html('<iframe width="550" height="350" src="' + products[id].video + '"></iframe>');
     }
+
+    $('.album-special').css({ 'background-color': 'red', 'float': 'left', 'width': '200px', 'height': '200px' }).html('hey there');
+
 
 }
 
