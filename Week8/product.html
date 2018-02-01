@@ -28,6 +28,32 @@
         </ul>
         <br class="clear" />
 
+        <div id="products_add" class="hidden">
+            <label for="name">Album Name</label><br>
+            <input id="name" type="text" placeholder="enter name" />
+            <br><br>
+
+            <label for="prce">Album Price</label><br>
+            <input id="price" type="text" placeholder="enter price" />
+            <br><br>
+
+            <label for="desc">Album Desc</label><br>
+            <textarea id="desc" placeholder="enter name"></textarea>
+            <br><br>
+
+            <label for="img">Album Img</label><br>
+            <select id="img">
+                <option value="images/image3.png">Image 3</option>
+                <option value="images/image4.png">Image 4</option>
+                <option value="images/image5.png">Image 5</option>
+                <option value="images/image6.png">Image 6</option>
+                <option value="images/image7.png">Image 7</option>
+
+            </select>
+            <br><br>
+
+        </div>
+
         <!-- this is the product container, the style for this is #product_container in product.css. this is shown by default. -->
         <div id="products_container">
             <table id="products_list">
@@ -70,12 +96,6 @@
 
                 <div id="album_video"></div>
                 <br class="clear" />
-
-                <div class="album-special"></div>
-                <div class="album-special"></div>
-                <div class="album-special"></div>
-                <div class="album-special"></div>
-                <div class="album-special"></div>
 
                 <!-- this form will let you buy items. -->
                 <form action="/products.html" method="GET" onsubmit="return false" id="product_form">

@@ -64,7 +64,7 @@ function loadProduct(id, back) {
         $('#album_video').html('<iframe width="550" height="350" src="' + products[id].video + '"></iframe>');
     }
 
-    $('.album-special').css({ 'background-color': 'red', 'float': 'left', 'width': '200px', 'height': '200px' }).html('hey there');
+    //$('.album-special').css({ 'background-color': 'red', 'float': 'left', 'width': '200px', 'height': '200px' }).html('hey there');
 
 
 }
@@ -72,12 +72,16 @@ function loadProduct(id, back) {
 function addToCart() {
 
     // first, declare and set values to your variables from the form #product_form
-    var inventory = parseInt(document.getElementById('inventory').value);
-    var qty = parseInt(document.getElementById('qty').value);
-    var email = document.getElementById('email').value;
+    var inventory = parseInt($('#inventory').val());
+    var qty = parseInt($('#qty').val());
+    var email = $('#email').val();
 
     // this is an array, a structure that holds error message strings
     var err_str = [];
+
+    if ($('#user_name').length == 0) {
+        alert('no username');
+    }
 
     // anything inside a try block is like throwing a ball to see what happens
     try {
@@ -98,12 +102,12 @@ function addToCart() {
             return false;
         } else {
             // show cart box, which is fixed
-            cart.style.display = 'block';
-            cart_items.innerText = parseInt(cart_items.innerText) + qty;
-            cart_total.innerText = (parseInt(cart_total.innerText) + (products[current_product_id].price * qty)).toFixed(2);
+            cart.show();
+            cart_items.text(parseInt(cart_items.text()) + qty);
+            cart_total.text((parseInt(cart_total.text()) + (products[current_product_id].price * qty)).toFixed(2));
             //console.log(qty);
 
-            document.getElementById('qty').value = 0;
+            $('#qty').val(0);
             alert('product added to cart');
 
         }
