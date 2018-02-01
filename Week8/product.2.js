@@ -1,5 +1,6 @@
 // this object holds a list of products with images, videos, etc.
-var products = [
+
+const products = [
     { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
     { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
 ];
@@ -42,9 +43,13 @@ $(document).ready(function() {
     });
 
     // save button
-    $(document.body).on('click', '#save_btn', function() {
-        products.push({ id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });
+    $(document.body).on('click', '#save_btn', function(e) {
+        e.preventDefault();
+        var product = { id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() };
+        products.push(product);       
         refreshProducts();
+        $('#products_add').addClass('hidden');
+        $('#products_container').removeClass('hidden');
     });
 
     // image preview function
