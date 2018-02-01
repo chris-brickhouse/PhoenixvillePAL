@@ -41,6 +41,16 @@ $(document).ready(function() {
     //console.log(products_string.join(''));
     $('#products_list tbody').html(products_string.join(''));
 
+    $(document.body).on('click', '#add_btn', function() {
+        $('#products_add').removeClass('hidden');
+        $('#products_container').addClass('hidden');
+    });
+
+    $(document.body).on('click', '#preview_btn', function(e) {
+        e.preventDefault();
+        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
+    });
+
 });
 
 function loadProduct(id, back) {
