@@ -1,6 +1,5 @@
 // this object holds a list of products with images, videos, etc.
-
-const products = [
+products = [
     { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
     { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
 ];
@@ -22,49 +21,20 @@ cart_total = null;
 cart_items = null;
 current_product_id = null;
 
-// changed to document.ready
-$(document).ready(function() {
+// runs when the page is completely loaded
+window.onload = function() {
 
     // sets the global vars when the page loads.
-    album = $('#album_container');
-    product_list = $('#products_container');
-
+    album = document.getElementById('album_container');
+    product_list = document.getElementById('products_container');
+    
     // set cart items to globals
-    cart = $('#cart');
-    cart_items = $('#cart_items');
-    cart_total = $('#cart_total');
+    cart = document.getElementById('cart');
+    cart_items = document.getElementById('cart_items');    
+    cart_total = document.getElementById('cart_total');
 
-    // call reusable function
-    refreshProducts();
-
-    // add button
-    $(document.body).on('click', '#add_btn', function() {
-        $('#products_add').removeClass('hidden');
-        $('#products_container').addClass('hidden');
-    });
-
-    // save button
-    $(document.body).on('click', '#save_btn', function(e) {
-        e.preventDefault();        
-        products.push({ id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });       
-        refreshProducts();
-        $('#products_add').addClass('hidden');
-        $('#products_container').removeClass('hidden');
-    });
-
-    // image preview function
-    $(document.body).on('click', '#preview_btn', function(e) {
-        e.preventDefault();
-        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
-    });
-
-    $(document.body).on('click', '#load_div', function() {
-        $('#new_div').load('product.html', function(){ alert('loaded')});
-    });
-});
-
-function refreshProducts() {
     // make reference to the body of the table to fill with data
+    var products_table_tbody = document.getElementById('products_list').getElementsByTagName('tbody')[0];
     var products_string = [];
 
     // loop through products data from line 2 and create html string to insert into product list table.
@@ -73,29 +43,29 @@ function refreshProducts() {
     }
 
     //console.log(products_string.join(''));
-    $('#products_list tbody').html(products_string.join(''));
-    console.log(products);
+    products_table_tbody.innerHTML = products_string.join('');
+
 }
 
 function loadProduct(id, back) {
     // toggles the product page 
 
     // sets the display of the list to the opposite of what it is
-    album.toggle();
+    album.style.display = (album.style.display == 'block' ? 'none' : 'block');
 
     // sets the display of the product page to the opposite of what it is
-    product_list.toggle();
+    product_list.style.display = (product_list.style.display == 'block' || product_list.style.display == undefined || product_list.style.display == '' ? 'none' : 'block');
 
     // this loads the product from the data.
     if (!back) {
         current_product_id = id;
         document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
-        $('#album_img').attr('src', products[id].img);
-        $('#album_name').text(products[id].name);
-        $('#album').text(products[id].album);
-        $('#album_desc').text(products[id].desc);
-        $('#album_price').text('$' + products[id].price);
-        $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
+        document.getElementById('album_img').src = products[id].img;
+        document.getElementById('album_name').innerText = products[id].name;
+        document.getElementById('album').innerText = products[id].album;
+        document.getElementById('album_desc').innerText = products[id].desc;
+        document.getElementById('album_price').innerText = '$' + products[id].price;
+        document.getElementById('album_video').innerHTML = '<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>';
     } else {
         current_product_id = null;
     }
@@ -105,9 +75,9 @@ function loadProduct(id, back) {
 function addToCart(id) {
 
     // first, declare and set values to your variables from the form #product_form
-    var inventory = parseInt($('#inventory').val());
-    var qty = parseInt($('#qty').val());
-    var email = $('#email').val();
+    var inventory = parseInt(document.getElementById('inventory').value);
+    var qty = parseInt(document.getElementById('qty').value);
+    var email = document.getElementById('email').value;
 
     // this is an array, a structure that holds error message strings
     var err_str = [];
@@ -138,15 +108,13 @@ function addToCart(id) {
             return false;
         } else {
             // show cart box, which is fixed
-            cart.show();
-            cart_items.text(parseInt(cart_items.text()) + qty);
-            cart_total.text(parseInt(cart_total.text()) + (products[current_product_id].price * qty));
+            cart.style.display = 'block';
+            cart_items.innerText = parseInt(cart_items.innerText) + qty;
+            cart_total.innerText = parseInt(cart_total.innerText) + (products[current_product_id].price * qty);
             console.log(qty);
-
-            $('#qty').val(0);
+            
+            document.getElementById('qty').value = 0;            
             alert('product added to cart');
-
-           
         }
 
     } catch (e) {

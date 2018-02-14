@@ -1,59 +1,19 @@
-<!-- 
-    todo:    
-     ==JQUERY==
-    - create ftps so we can do ajax
-    - ajax/load
-    - selectors    
-        -- child/parent
-        -- loop
-        -- first/last
-    - attributes
-    -- data
-    - method chaining
-    - callback functions
-    - load
-    - events
-    - hide/show/slide/toggle
-    - animate
-        -- take element across screen
-        -- show different animations        
-    - extending jquery
-
-    ==BOOTSTRAP==
-    - grid system/ layout
-    - tables
-    - forms
-    - buttons
-    - card
-    - navs
-    - convert site to bootstrap
-
--->
-
 <html>
 
 <head>
     <title>forms</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.3/css/all.css" rel="stylesheet">
-
-    <!-- we added jquery from the CDN. -->
-    <script src="https://code.jquery.com/jquery-1.10.2.js" crossorigin="anonymous"></script>
-
     <!-- we moved the css to product.css -->
-    <link href="product.2.css" rel="stylesheet" />
-
+    <link href="product.1.css" rel="stylesheet" />
     <!-- we moved the javascript to product.js -->
-    <script src="product.2.js"></script>
+    <script src="product.1.js"></script>
 
 </head>
 
 <body>
     <!-- we added this container in week 4 -->
     <div class="container">
-
-        <button id="load_div">load div</button>        
-        <div id="new_div"></div>
 
         <!-- this is the nav element we made, it has three menu items. -->
         <ul id="nav">
@@ -64,51 +24,8 @@
         </ul>
         <br class="clear" />
 
-        <div id="products_add" class="hidden">
-            <form id="add_form">
-                <label for="name">Album Name</label><br>
-                <input type="text" id="name" placeholder="enter name" />
-                <br />
-
-                <label for="album">Album Title</label><br>
-                <input type="text" id="album" placeholder="enter title" />
-                <br />
-
-                <label for="desc">Album Desc</label><br>
-                <textarea id="desc" placeholder="enter desc"></textarea>
-                <br />
-
-                <label for="price">Album Price</label><br>
-                <input type="text" id="price" placeholder="enter price" />
-                <br />
-
-                <label for="video">Album Video</label><br>
-                <input type="text" id="video" placeholder="enter title" />
-                <br />
-
-                <label for="img">Album Image</label><br>
-                <select id="img">
-                    <option value="images/image3.png">Image 3</option>
-                    <option value="images/image4.png">Image 4</option>
-                    <option value="images/image5.png">Image 5</option>
-                    <option value="images/image6.png">Image 6</option>
-                </select>
-
-                <button id="preview_btn"><i class="fas fa-image"></i> Preview</button>
-                <br />
-                <img src="" class="hidden" id="image_preview" />
-                <br />
-
-                <button id="save_btn"><i class="fas fa-save"></i> Save</button>
-            </form>
-
-        </div>
-
         <!-- this is the product container, the style for this is #product_container in product.css. this is shown by default. -->
         <div id="products_container">
-            <button id="add_btn"><i class="fas fa-plus-square"></i> Add Product</button>
-            <br class="clear" />
-
             <table id="products_list">
                 <thead>
                     <tr>
@@ -168,7 +85,7 @@
 
     </div>
 
-    <div id="cart" class="hidden">
+    <div id="cart">
         <i class="fas fa-shopping-cart"></i> Items: <span id="cart_items">0</span> | Total: $<span id="cart_total">0</span>
     </div>
 

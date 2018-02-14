@@ -46,7 +46,7 @@ $(document).ready(function() {
     // save button
     $(document.body).on('click', '#save_btn', function(e) {
         e.preventDefault();        
-        products.push({ id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });       
+        products.push({ id: products.length + 1, price: parseFloat($('#price').val()), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });       
         refreshProducts();
         $('#products_add').addClass('hidden');
         $('#products_container').removeClass('hidden');
@@ -69,7 +69,8 @@ function refreshProducts() {
 
     // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
-        products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td>' + products[i].price + '</td><td><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn">View</button></td></tr>');
+        // added delete, button group, modified buttons, centered stuff 2/14
+        products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-default"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
     }
 
     //console.log(products_string.join(''));
@@ -77,11 +78,22 @@ function refreshProducts() {
     console.log(products);
 }
 
+
+// added delete 2/14
+function delProduct(id) {
+    if (confirm('Are you sure you want to delete this?')){        
+        products.splice(id, 1);
+        refreshProducts();
+        console.log(products);
+        return false;
+    }
+}
+
 function loadProduct(id, back) {
     // toggles the product page 
 
     // sets the display of the list to the opposite of what it is
-    album.toggle();
+    album.toggleClass('hidden');
 
     // sets the display of the product page to the opposite of what it is
     product_list.toggle();
@@ -91,8 +103,9 @@ function loadProduct(id, back) {
         current_product_id = id;
         document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
         $('#album_img').attr('src', products[id].img);
-        $('#album_name').text(products[id].name);
-        $('#album').text(products[id].album);
+        // got rid of album field under image
+        $('#album_name').text(products[id].name + ' - ' + products[id].album);         
+        $('#album_title').text(products[id].album);       
         $('#album_desc').text(products[id].desc);
         $('#album_price').text('$' + products[id].price);
         $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');

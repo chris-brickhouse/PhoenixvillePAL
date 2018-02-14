@@ -1,6 +1,5 @@
 // this object holds a list of products with images, videos, etc.
-
-const products = [
+var products = [
     { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
     { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
 ];
@@ -22,48 +21,15 @@ cart_total = null;
 cart_items = null;
 current_product_id = null;
 
-// changed to document.ready
+// runs when the page is completely loaded
 $(document).ready(function() {
-
     // sets the global vars when the page loads.
     album = $('#album_container');
     product_list = $('#products_container');
-
-    // set cart items to globals
     cart = $('#cart');
     cart_items = $('#cart_items');
     cart_total = $('#cart_total');
 
-    // call reusable function
-    refreshProducts();
-
-    // add button
-    $(document.body).on('click', '#add_btn', function() {
-        $('#products_add').removeClass('hidden');
-        $('#products_container').addClass('hidden');
-    });
-
-    // save button
-    $(document.body).on('click', '#save_btn', function(e) {
-        e.preventDefault();        
-        products.push({ id: 3, price: $('#price').val(), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });       
-        refreshProducts();
-        $('#products_add').addClass('hidden');
-        $('#products_container').removeClass('hidden');
-    });
-
-    // image preview function
-    $(document.body).on('click', '#preview_btn', function(e) {
-        e.preventDefault();
-        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
-    });
-
-    $(document.body).on('click', '#load_div', function() {
-        $('#new_div').load('product.html', function(){ alert('loaded')});
-    });
-});
-
-function refreshProducts() {
     // make reference to the body of the table to fill with data
     var products_string = [];
 
@@ -74,8 +40,18 @@ function refreshProducts() {
 
     //console.log(products_string.join(''));
     $('#products_list tbody').html(products_string.join(''));
-    console.log(products);
-}
+
+    $(document.body).on('click', '#add_btn', function() {
+        $('#products_add').removeClass('hidden');
+        $('#products_container').addClass('hidden');
+    });
+
+    $(document.body).on('click', '#preview_btn', function(e) {
+        e.preventDefault();
+        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
+    });
+
+});
 
 function loadProduct(id, back) {
     // toggles the product page 
@@ -86,23 +62,24 @@ function loadProduct(id, back) {
     // sets the display of the product page to the opposite of what it is
     product_list.toggle();
 
-    // this loads the product from the data.
     if (!back) {
+        // if not back button, fill html template with data from line 2 based on ID passed from the buttons we created in line 35
         current_product_id = id;
-        document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
+        document.title = products[id].name + ' - ' + products[id].album + ' - ' + products[id].price;
         $('#album_img').attr('src', products[id].img);
-        $('#album_name').text(products[id].name);
         $('#album').text(products[id].album);
-        $('#album_desc').text(products[id].desc);
-        $('#album_price').text('$' + products[id].price);
-        $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
-    } else {
-        current_product_id = null;
+        $('#album_name').text(products[id].name);
+        $('#album_desc').html(products[id].desc);
+        $('#album_price').text('$' + products[id].price.toFixed(2));
+        $('#album_video').html('<iframe width="550" height="350" src="' + products[id].video + '"></iframe>');
     }
+
+    //$('.album-special').css({ 'background-color': 'red', 'float': 'left', 'width': '200px', 'height': '200px' }).html('hey there');
+
 
 }
 
-function addToCart(id) {
+function addToCart() {
 
     // first, declare and set values to your variables from the form #product_form
     var inventory = parseInt($('#inventory').val());
@@ -111,6 +88,10 @@ function addToCart(id) {
 
     // this is an array, a structure that holds error message strings
     var err_str = [];
+
+    if ($('#user_name').length == 0) {
+        alert('no username');
+    }
 
     // anything inside a try block is like throwing a ball to see what happens
     try {
@@ -125,29 +106,23 @@ function addToCart(id) {
             err_str.push("We don't have that many");
         }
 
-        // check the qty
-        if (qty == 0) {
-            err_str.push("You Must enter a qty.");
-        }
-
-        console.log(err_str);
-
         // if the error above wasn't thrown, it would hit this, which checks to see if errors exist, if so throws error
         if (err_str.length > 0) {
-            alert(err_str.join('\n'));
+            alert(err_str.join(''));
             return false;
         } else {
             // show cart box, which is fixed
             cart.show();
             cart_items.text(parseInt(cart_items.text()) + qty);
-            cart_total.text(parseInt(cart_total.text()) + (products[current_product_id].price * qty));
-            console.log(qty);
+            cart_total.text((parseInt(cart_total.text()) + (products[current_product_id].price * qty)).toFixed(2));
+            //console.log(qty);
 
             $('#qty').val(0);
             alert('product added to cart');
 
-           
         }
+
+
 
     } catch (e) {
         alert(e.message);
