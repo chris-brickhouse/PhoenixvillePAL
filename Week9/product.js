@@ -88,11 +88,7 @@ function addToCart() {
 
     // this is an array, a structure that holds error message strings
     var err_str = [];
-
-    if ($('#user_name').length == 0) {
-        alert('no username');
-    }
-
+  
     // anything inside a try block is like throwing a ball to see what happens
     try {
 
