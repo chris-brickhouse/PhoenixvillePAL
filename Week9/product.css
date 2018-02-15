@@ -9,38 +9,6 @@
  form {
      margin: 20px;
  }
- /* we changed the name box to red */
- 
- #first_name {
-     background-color: red;
-     color: white;
- }
- /* this is for the <ul> with the id #nav*/
- 
- #nav {
-     margin: 0;
-     padding: 0;
-     list-style: none;
- }
- /* this is for all <li> inside the nav ul */
- 
- #nav li {
-     list-style-type: none;
-     float: left;
- }
- /* all link tags inside the li tags of the nav */
- 
- #nav li a {
-     padding: 10px;
-     margin: 1px;
-     border: 1px solid #c0c0c0;
-     background: #efefef;
- }
- 
- #nav li a:hover {
-     background-color: #ff0000;
-     color: #fff;
- }
  /* clears floated items */
  
  .clear {
