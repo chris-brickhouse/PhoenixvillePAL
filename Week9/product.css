@@ -51,33 +51,6 @@
  }
  /* album container,  hidden by default */
  
- #album_container {
-     margin: 25px 10px 10px 10px;
-     display: none;
- }
- 
- #album_container div {
-     /* this adds styling to all divs inside album container */
-     padding: 10px;
-     float: left;
-     min-height: 300px;
-     border: 1px solid #c0c0c0;
- }
- 
- #album_container h1 {
-     margin: 0px 0px 10px 0px;
-     font-weight: bolder;
- }
- 
- #album_container div.left-album {
-     width: 250px;
-     text-align: center;
- }
- 
- #album_container div.right-album {
-     width: 650px;
- }
- 
  #cart {
      position: absolute;
      bottom: 0;
@@ -92,4 +65,8 @@
  
  .hidden {
      display: none;
+ }
+ 
+ .item-container {
+     margin-top: 25px;
  }

@@ -42,9 +42,7 @@
             </div>
         </nav>
 
-        <br class="clear" />
-
-        <div id="products_add" class="hidden card">
+        <div id="products_add" class="hidden card item-container">
 
             <div class="card-header">
                 <h1>Add Album</h1>
@@ -85,7 +83,8 @@
                     <img src="" class="hidden" id="image_preview" />
                     <br />
 
-                    <button id="save_btn"><i class="fas fa-save"></i> Save</button>
+                    <button id="save_btn" class="btn btn-default"><i class="fas fa-save"></i> Save</button>
+                    <button id="back_to_list_save" class="btn btn-danger" onclick="loadProduct(0, true)"><i class="fas fa-ban"></i> Cancel</button>
                 </form>
             </div>
 
@@ -93,7 +92,7 @@
 
         <!-- this is the product container, the style for this is #product_container in product.css. this is shown by default. -->
         <div id="products_container">
-            <button id="add_btn"><i class="fas fa-plus-square"></i> Add Product</button>
+            <button id="add_btn" class="btn btn-primary"><i class="fas fa-plus-square"></i> Add Product</button>
             <br class="clear" />
 
             <table id="products_list">
@@ -114,43 +113,52 @@
         </div>
 
         <!-- this is the album page. this is hidden by default with the css #album_container selector. -->
-        <div id="album_container">
-            <div class="left-album">
-                <img src="images/image1.png" id="album_img" />
-                <br class="clear" />
-                <em class="album-desc">
+
+        <div id="album_container" class="hidden card item-container">
+
+            <div class="card-header">
+                <h1 id="album_name"></h1>
+            </div>
+
+            <div class="row card-body">
+
+                <div class="col-sm-3">
+                    <img src="images/image1.png" id="album_img" />
+                    <br class="clear" />
+                    <em class="album-desc">
                         <!-- this is a font awesome icon -->
                         <i class="fas fa-music fa-right"></i>
                         <span id="album"></span>
                     </em>
-            </div>
-            <div class="right-album">
-                <!-- tag for album name -->
-                <h1 id="album_name"></h1>
+                </div>
+                <div class="col-sm-9">
+                    <!-- tag for album name -->
 
-                <!-- album desc -->
-                <p id="album_desc"></p>
 
-                <!-- price -->
-                <h3 id="album_price"></h3>
+                    <!-- album desc -->
+                    <p id="album_desc"></p>
 
-                <div id="album_video"></div>
-                <br class="clear" />
+                    <!-- price -->
+                    <h3 id="album_price"></h3>
 
-                <!-- this form will let you buy items -->
-                <form action="/products.html" method="GET" onsubmit="return false" id="product_form" class="form form-horizontal">
-                    <input type="hidden" id="inventory" value="66" />
-                    <label for="qty" class="control-label">QTY</label>
-                    <input id="qty" class="form-control" name="qty" value="0" placeholder="0" />
-                    <br class="clear">
-                    <label for="email" class="control-label">Email</label>
-                    <input id="email" class="form-control" name="email" type="email" />
+                    <div id="album_video"></div>
                     <br class="clear" />
-                    <button id="buy" onclick="addToCart()">BUY</button>
-                    <button id="back_to_list" onclick="loadProduct(0, true)">Back</button>
-                </form>
+
+                    <!-- this form will let you buy items -->
+                    <form action="/products.html" method="GET" onsubmit="return false" id="product_form" class="form form-horizontal">
+                        <input type="hidden" id="inventory" value="66" />
+                        <label for="qty" class="control-label">QTY</label>
+                        <input id="qty" class="form-control" name="qty" value="0" placeholder="0" />
+                        <br class="clear">
+                        <label for="email" class="control-label">Email</label>
+                        <input id="email" class="form-control" name="email" type="email" />
+                        <br class="clear" />
+                        <button id="buy" onclick="addToCart()">BUY</button>
+                        <button id="back_to_list" onclick="loadProduct(0, true)">Back</button>
+                    </form>
+                </div>
+                <br class="clear" />
             </div>
-            <br class="clear" />
         </div>
 
     </div>
