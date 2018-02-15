@@ -35,7 +35,7 @@ $(document).ready(function() {
 
     // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
-        products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td>' + products[i].price + '</td><td><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn">View</button></td></tr>');
+        products_string.push('<tr><td><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td>' + products[i].price + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '" class="my_btn btn btn-default"><i class="fas fa-search"></i> View</button></div></td></tr>');
     }
 
     //console.log(products_string.join(''));
