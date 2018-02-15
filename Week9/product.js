@@ -119,7 +119,7 @@ function addToCart() {
 
             $('#qty').val(0);
             alert('product added to cart');
-
+            return;
         }
 
 

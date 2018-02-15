@@ -2,27 +2,14 @@
  
  body {
      background-color: #efefef;
-     text-align: center;
      /* we imported roboto font from google fonts */
      font-family: 'Roboto', Arial, Helvetica, sans-serif;
- }
- 
- .container {
-     width: 1024px;
-     /* top, left, bottom, right (clockwise ) */
-     /* margin: 0 auto 0 auto; */
-     /* if top and bottom and left and right are same, the below works */
-     margin: 0 auto;
-     text-align: left;
-     border: 1px solid #c0c0c0;
-     padding: 10px;
-     border-radius: 10px;
  }
  
  form {
      margin: 20px;
  }
- /* we changed the first name box to red */
+ /* we changed the name box to red */
  
  #first_name {
      background-color: red;
@@ -63,17 +50,23 @@
  .container #first_form {
      background-color: #fff;
  }
+ 
+ #products_add {
+     margin-top: 15px;
+ }
  /* product container styles -*/
  
  #products_container {
      margin-top: 25px;
-     background-color: rgb(131, 130, 130);
-     border: 1px solid #c0c0c0;
-     display: block;
+     width: 100%;
  }
  
  #products_container #products_list {
+     margin-top: 25px;
+     display: table;
      width: 100%;
+     background-color: #efefef;
+     border: 1px solid #c0c0c0;
  }
  /* product container cells */
  
@@ -120,9 +113,8 @@
  #cart {
      position: absolute;
      bottom: 0;
-     display: none;
      right: 0;
-     width: 180px;
+     width: 170px;
      padding: 20px;
      margin: 15px;
      border: 1px solid #c0c0c0;
