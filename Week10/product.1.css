@@ -1,0 +1,72 @@
+ /* changed the background to a light grey */
+ 
+ body {
+    /* we imported roboto font from google fonts */
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+form {
+    margin: 20px;
+}
+
+/* clears floated items */
+
+.clear {
+    clear: both;
+}
+
+/* product container styles -*/
+
+.card-container {
+    margin-top: 25px;
+    width: 100%;
+}
+
+#products_container #products_list {
+    margin-top: 25px;
+    display: table;
+    width: 100%;
+    background-color: #efefef;
+    border: 1px solid #c0c0c0;
+}
+/* product container cells */
+
+#products_container #products_list td {
+    vertical-align: top;
+    border: 1px solid #c0c0c0;
+    background-color: #fff;
+    padding: 10px;
+}
+/* list images */
+
+#products_container #products_list td img {
+    max-height: 150px;
+    max-width: 150px;
+}
+/* album container,  hidden by default */
+
+
+#album_container h1 {
+    font-weight: bolder;
+}
+
+#cart {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 170px;
+    padding: 20px;
+    margin: 15px;
+    border: 1px solid #c0c0c0;
+    background: #efefef;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+/* for 2/22 */
+.edit-buttons {
+   width:120px;
+}
