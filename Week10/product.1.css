@@ -4,6 +4,10 @@
     /* we imported roboto font from google fonts */
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
+hr {
+    border-color:#c0c0c0;
+    margin-top:10px;
+}
 
 form {
     margin: 20px;
