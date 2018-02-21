@@ -123,15 +123,10 @@ function delProduct(id) {
 function loadProduct(id, back) {
     // toggles the product page 
 
-    // sets the display of the list to the opposite of what it is
-    // added effects - slideToggle for 2/21
-    album.slideToggle('slow');
-
-    // sets the display of the product page to the opposite of what it is
-    product_list.slideToggle('slow');
-
-    // this loads the product from the data.
     if (!back) {
+        // sets the display of the product page to the opposite of what it is    
+        album.fadeIn('slow');
+        product_list.fadeOut('slow');
         current_product_id = id;
         document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
         $('#album_img').attr('src', products[id].img);
@@ -142,8 +137,10 @@ function loadProduct(id, back) {
         $('#album_price').text('$' + products[id].price);
         $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
     } else {
-        $('#products_add').fadeOut('slow');
-        $('#products_container').fadeIn('slow');
+        document.title = 'MyMusicSite - Listing'
+        $('#products_add').fadeOut('slow');        
+        product_list.fadeIn('slow');
+        album.fadeOut('slow');
         current_product_id = null;
     }
 
