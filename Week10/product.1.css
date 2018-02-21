@@ -1,6 +1,6 @@
  /* changed the background to a light grey */
  
- body {
+ body, h1, li, .navbar li {
     /* we imported roboto font from google fonts */
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
 }
