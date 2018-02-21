@@ -50,7 +50,6 @@ form {
     font-weight: bolder;
 }
 
-
 #cart {
     position: absolute;
     bottom: 0;
@@ -67,7 +66,7 @@ form {
     display: none;
 }
 
-/* for 2/14 */
+/* for 2/22 */
 .edit-buttons {
    width:120px;
 }

@@ -1,0 +1,72 @@
+ /* changed the background to a light grey */
+ 
+ body {
+     background-color: #efefef;
+     /* we imported roboto font fromd google fonts */
+     font-family: 'Roboto', Arial, Helvetica, sans-serif;
+ }
+ 
+ form {
+     margin: 20px;
+ }
+ /* clears floated items */
+ 
+ .clear {
+     clear: both;
+ }
+ 
+ .container #first_form {
+     background-color: #fff;
+ }
+ 
+ #products_add {
+     margin-top: 15px;
+ }
+ /* product container styles -*/
+ 
+ #products_container {
+     margin-top: 25px;
+     width: 100%;
+ }
+ 
+ #products_container #products_list {
+     margin-top: 25px;
+     display: table;
+     width: 100%;
+     background-color: #efefef;
+     border: 1px solid #c0c0c0;
+ }
+ /* product container cells */
+ 
+ #products_container #products_list td {
+     vertical-align: top;
+     border: 1px solid #c0c0c0;
+     background-color: #fff;
+     padding: 10px;
+ }
+ /* list images */
+ 
+ #products_container #products_list td img {
+     max-height: 75px;
+ }
+ /* album container,  hidden by default */
+ 
+ #cart {
+     position: absolute;
+     bottom: 0;
+     right: 0;
+     width: 170px;
+     padding: 20px;
+     margin: 15px;
+     border: 1px solid #c0c0c0;
+     background: #efefef;
+     border-radius: 10px;
+ }
+ 
+ .hidden {
+     display: none;
+ }
+ 
+ .item-container {
+     margin-top: 25px;
+ }
