@@ -1,9 +1,6 @@
 // this object holds a list of products with images, videos, etc.
 
-const products = [
-    { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
-    { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
-];
+let products = [];
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
@@ -25,6 +22,9 @@ current_product_id = null;
 // changed to document.ready
 $(document).ready(function() {
 
+    // created ajax for 2/21
+    loadProducts();
+ 
     // sets the global vars when the page loads.
     album = $('#album_container');
     product_list = $('#products_container');
@@ -84,15 +84,30 @@ $(document).ready(function() {
    
 });
 
+function loadProducts() {
+    $.ajax({
+        url: 'products.json',
+        dataType: 'json',
+        cache: false,
+        async: false,
+        success: function (in_data) {
+            products = in_data;
+        },
+        error: function (xhr, status, err) {
+            console.log(err);
+        }
+    });    
+}
+
 // switched to reusable function for 2/20
 function refreshProducts() {
-    // make reference to the body of the table to fill with data
     var products_string = [];
 
     // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
-        // added delete, button group, modified buttons, centered stuff 2/14
-        products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-default"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
+        
+        // changed to button secondary 2/22
+        products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td><strong>' + products[i].name + '</strong> - <em>' + products[i].album + '</em><hr>' + products[i].desc.replace(/\n/, '<br><br>') + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-secondary"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
     }
 
     //console.log(products_string.join(''));

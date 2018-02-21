@@ -1,4 +1,0 @@
-[
-    {"id":1, "price":10, "name": "Run The Jewels", "album": "3", "desc":"Test Desc for Run The Jewels", "img": "Images/image1.png"},
-    {"id":2, "price":12, "name": "The Menzingers", "album": "After The Party", "desc":"Test description for the Menzingers", "img": "Images/image2.png"}
-]

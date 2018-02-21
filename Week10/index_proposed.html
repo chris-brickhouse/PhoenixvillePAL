@@ -33,9 +33,41 @@
 <html>
 
 <head>
-    <title>forms</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <title>MyMusicSite - a great music store</title>
     
+    <!-- discuss meta tags for 2/21 -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+    <meta http-equiv="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta http-equiv="PRAGMA" CONTENT="NO-CACHE">
+    <META NAME="ROBOTS" CONTENT="INDEX,FOLLOW"> 
+   
+    <!-- create free icon - https://realfavicongenerator.net -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=694qdBdAqL">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png?v=694qdBdAqL">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png?v=694qdBdAqL">
+    <link rel="manifest" href="site.webmanifest?v=694qdBdAqL">
+    <link rel="mask-icon" href="safari-pinned-tab.svg?v=694qdBdAqL" color="#5bbad5">
+    <link rel="shortcut icon" href="favicon.ico?v=694qdBdAqL">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- this is for search engines -->
+    <meta name="description" content="Hardcore Music and bands, Emo Bands and Emo Music and shows, Metal Music, Punk Music, Blog, Shows, Bands, CD and album reviews, Free Mp3 and audio downloads. We cover hardcore bands, metal bands, emo bands, punk rock bands, photo albums, member profiles, message boards, community website." />
+    <meta name="keywords" content="hardcore music, emo music, hardcore bands, cd reviews, album reviews, band profiles, free mp3s, free music, emo bands, metal bands, punk bands, hardcore shows, emo shows, metal shows, concerts, underground music scene, metal music, message boards, forums, music forums, music message boards, hip hop, hardcore shows, hardcore events, emo, emo hair, emo clothes, punk, punk rock, punk rock music, punk rock bands." />
+
+    <!-- facebook uses these -->
+    <meta property="og:url" content="http://www.phoenixvillepal.org/Students/0/index_proposed.html" />
+    <meta property="og:image" content="http://www.phoenixvillepal.org/Students/0/images/logo-fb.png" />
+    <meta property="og:title" content="mymusicsite.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="mymusicsite.com" />
+    <meta property="og:description" content="awesome music site" />
+
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
     <!-- updated font-awesome, is now script -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 
@@ -48,10 +80,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <!-- we moved the css to product.css -->
-    <link href="product.1.css" rel="stylesheet" />
+    <link href="product.1.css?V=1" rel="stylesheet" />
 
     <!-- we moved the javascript to product.js -->
-    <script src="product.1.js"></script>
+    <script src="product.1.js?V=1"></script>
 
 </head>
 
@@ -62,22 +94,30 @@
         <!--<button id="load_div">load div</button>        
         <div id="new_div"></div>-->
 
-        <!-- this is the nav element we made, it has three menu items. -->
-        <!-- changed to bootstrap 2/14 class -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">My Music Shop</a>
+        <!--  changed navbar color. switched all buttons to secondary 2/22.  -->
+        <nav class="navbar navbar-expand-lg navbar-light">
+            
+            <!-- added logo 2/21/2018 -->
+            <a class="navbar-brand" href="#"><img src="images/logo.png"> MyMusicSite</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mr-auto">                     
-                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="/records" class="nav-link">Records</a></li>
-                    <li class="nav-item"><a href="/cds" class="nav-link">CDs</a></li>
-                    <li class="nav-item"><a href="/users" class="nav-link"><i class="fas fa-users"></i> Users</a></li>
-                </ul>
+                    <li class="nav-item active"><a href="/" class="nav-link"> Home</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> Records</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> CDs</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> Users</a></li>
+                </ul>                
             </div>
+
+            <!-- added search form for 2/22 -->
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Album or Artist Name?" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+            </form>
+
         </nav>
         
        <div id="products_add" class="hidden card card-container">
@@ -141,14 +181,13 @@
                 <h1>Existing Products</h1>
             </div>
             <div class="card-body">
-                <button id="add_btn" class="btn btn-default"><i class="fas fa-plus-square"></i> Add Product</button>
+                <button id="add_btn" class="btn btn-secondary"><i class="fas fa-plus-square"></i> Add Product</button>
                 <br class="clear" />
                 
                 <table id="products_list" class="table">
                     <thead>
                         <tr>
-                            <th>&nbsp;</th>
-                            <th>Item</th>
+                            <th>&nbsp;</th>                
                             <th>Desc</th>
                             <th>Price</th>
                             <th class="edit-buttons">&nbsp;</th>
