@@ -1,15 +1,5 @@
-// this object holds a list of products with images, videos, etc.
-
+// this object will now be loaded via ajax loadProducts(). changed 2/21
 let products = [];
-
-// makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
-String.prototype.left = function(len) {
-        return this.substring(0, len);
-    }
-    // will get the id from the buttons.
-String.prototype.getId = function() {
-    return this.replace('button_', '');
-}
 
 // global variables make it easy to change these objects.
 album = null;
@@ -39,9 +29,17 @@ $(document).ready(function() {
 
     // add button
     $(document.body).on('click', '#add_btn', function() {
-        // added effects for 2/20
-        $('#products_add').fadeIn('slow');
-        $('#products_container').fadeOut('slow');        
+        
+        // change to .load ajax 2/21
+        $('#products_add').load('partial_product_add.html', function(){
+            $('#products_add').fadeIn('slow');
+            $('#products_container').fadeOut('slow'); 
+            
+            // make image first image. 2/21
+            $('#image_preview').attr('src', $('#img option:first').val()); 
+        });
+
+             
     });
 
     // save button
@@ -77,10 +75,6 @@ $(document).ready(function() {
     $(document.body).on('click', '#load_div', function() {
         $('#new_div').load('product.html', function(){ alert('loaded')});
     });
-
-    // make image first image. 2/21
-    $('#image_preview').attr('src', $('#img option:first').val());
-
    
 });
 
@@ -106,7 +100,7 @@ function refreshProducts() {
     // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
         
-        // changed to button secondary 2/22
+        // changed to button secondary 2/22. change design.
         products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td><strong>' + products[i].name + '</strong> - <em>' + products[i].album + '</em><hr>' + products[i].desc.replace(/\n/, '<br><br>') + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-secondary"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
     }
 
@@ -148,6 +142,8 @@ function loadProduct(id, back) {
         $('#album_price').text('$' + products[id].price);
         $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
     } else {
+        $('#products_add').fadeOut('slow');
+        $('#products_container').fadeIn('slow');
         current_product_id = null;
     }
 
