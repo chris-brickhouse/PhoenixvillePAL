@@ -1,9 +1,6 @@
 // this object holds a list of products with images, videos, etc.
 
-const products = [
-    { id: 1, price: 10, name: "Run The Jewels", album: "3", desc: "Test description for rtj3", img: "images/image1.png", video: "https://www.youtube.com/embed/saR7SYa6nAs" },
-    { id: 2, price: 12, name: "The Menzingers", album: "After the party", desc: "Test description for atp", img: "images/image2.png", video: "https://www.youtube.com/embed/n3SxjX--x3U" }
-];
+let products = [];
 
 // makes it so you can do mystring.left(3) and grab "btn" from strings with "btn_1"  or "btn_2" ids.
 String.prototype.left = function(len) {
@@ -25,6 +22,8 @@ current_product_id = null;
 // changed to document.ready
 $(document).ready(function() {
 
+    loadProducts();
+
     // sets the global vars when the page loads.
     album = $('#album_container');
     product_list = $('#products_container');
@@ -39,14 +38,21 @@ $(document).ready(function() {
 
     // add button
     $(document.body).on('click', '#add_btn', function() {
-        $('#products_add').removeClass('hidden');
-        $('#products_container').addClass('hidden');
+
+        // change to .load ajax 2/21
+        $('#products_add').load('partial_product_add.html', function() {
+            $('#products_add').fadeIn('slow');
+            $('#products_container').fadeOut('slow');
+
+            // make image first image. 2/21
+            $('#image_preview').attr('src', $('#img option:first').val());
+        });
     });
 
     // save button
     $(document.body).on('click', '#save_btn', function(e) {
-        e.preventDefault();        
-        products.push({ id: products.length + 1, price: parseFloat($('#price').val()), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });       
+        e.preventDefault();
+        products.push({ id: products.length + 1, price: parseFloat($('#price').val()), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });
         refreshProducts();
         $('#products_add').addClass('hidden');
         $('#products_container').removeClass('hidden');
@@ -59,9 +65,24 @@ $(document).ready(function() {
     });
 
     $(document.body).on('click', '#load_div', function() {
-        $('#new_div').load('product.html', function(){ alert('loaded')});
+        $('#new_div').load('product.html', function() { alert('loaded') });
     });
 });
+
+function loadProducts() {
+    $.ajax({
+        url: 'products.json',
+        dataType: 'json',
+        cache: false,
+        async: false,
+        success: function(in_data) {
+            products = in_data;
+        },
+        error: function(xhr, status, err) {
+            console.log(err);
+        }
+    });
+}
 
 function refreshProducts() {
     // make reference to the body of the table to fill with data
@@ -70,7 +91,7 @@ function refreshProducts() {
     // loop through products data from line 2 and create html string to insert into product list table.
     for (var i = 0; i < products.length; i++) {
         // added delete, button group, modified buttons, centered stuff 2/14
-        products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td>' + products[i].name + '</td><td>' + products[i].desc + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-default"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
+        products_string.push('<tr><td align="center"><img src="' + products[i].img + '" /></td><td><strong>' + products[i].name + '</strong> - <em>' + products[i].album + '</em><hr>' + products[i].desc.replace(/\n/, '<br><br>') + '</td><td align="center">$' + products[i].price.toFixed(2) + '</td><td><div class="btn-group"><button id="button_' + i + '" onclick="loadProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-secondary"><i class="fas fa-pencil-alt"></i></button><button id="button_' + i + '" onclick="delProduct(' + i + ')" my_id="' + i + '"  class="my_btn btn btn-danger"><i class="fas fa-trash"></i></button></div></td></tr>');
     }
 
     //console.log(products_string.join(''));
@@ -81,7 +102,7 @@ function refreshProducts() {
 
 // added delete 2/14
 function delProduct(id) {
-    if (confirm('Are you sure you want to delete this?')){        
+    if (confirm('Are you sure you want to delete this?')) {
         products.splice(id, 1);
         refreshProducts();
         console.log(products);
@@ -104,8 +125,8 @@ function loadProduct(id, back) {
         document.title = products[id].name + ' - ' + products[id].album + ' - $' + products[id].price.toFixed(2);
         $('#album_img').attr('src', products[id].img);
         // got rid of album field under image
-        $('#album_name').text(products[id].name + ' - ' + products[id].album);         
-        $('#album_title').text(products[id].album);       
+        $('#album_name').text(products[id].name + ' - ' + products[id].album);
+        $('#album_title').text(products[id].album);
         $('#album_desc').text(products[id].desc);
         $('#album_price').text('$' + products[id].price);
         $('#album_video').html('<iframe width="560" height="315" src="' + products[id].video + '" frameborder="0"></iframe>');
@@ -159,7 +180,7 @@ function addToCart(id) {
             $('#qty').val(0);
             alert('product added to cart');
 
-           
+
         }
 
     } catch (e) {

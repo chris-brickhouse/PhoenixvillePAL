@@ -1,7 +1,6 @@
  /* changed the background to a light grey */
  
  body {
-     background-color: #efefef;
      /* we imported roboto font fromd google fonts */
      font-family: 'Roboto', Arial, Helvetica, sans-serif;
  }
@@ -9,10 +8,19 @@
  form {
      margin: 20px;
  }
+ 
+ .navbar-light {
+     background-color: #c0c0c0 !important;
+ }
  /* clears floated items */
  
  .clear {
      clear: both;
+ }
+ 
+ .card-container {
+     margin-top: 25px;
+     width: 100%;
  }
  
  .container #first_form {
