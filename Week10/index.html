@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="en">
+<!-- 2/21 added doctype and lang=en -->
 
 <head>
-    <title>MyMusicSite</title>
+    <title>MyMusicSite - a great music store</title>
 
     <!-- discuss meta tags for 2/21 -->
     <meta charset="utf-8" />
@@ -28,7 +29,7 @@
     <meta name="keywords" content="hardcore music, emo music, hardcore bands, cd reviews, album reviews, band profiles, free mp3s, free music, emo bands, metal bands, punk bands, hardcore shows, emo shows, metal shows, concerts, underground music scene, metal music, message boards, forums, music forums, music message boards, hip hop, hardcore shows, hardcore events, emo, emo hair, emo clothes, punk, punk rock, punk rock music, punk rock bands."
     />
 
-    <!-- facebook uses these -->
+    <!-- facebook uses these. introduce facebook debugger.  -->
     <meta property="og:url" content="http://www.phoenixvillepal.org/Students/0/index_proposed.html" />
     <meta property="og:image" content="http://www.phoenixvillepal.org/Students/0/images/logo-fb.png" />
     <meta property="og:title" content="mymusicsite.com" />
@@ -36,59 +37,68 @@
     <meta property="og:site_name" content="mymusicsite.com" />
     <meta property="og:description" content="awesome music site" />
 
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- we added jquery from the CDN. -->
+    <!-- updated font-awesome, is now script -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    <!-- we added jquery from the CDN, along with popper and bootstrap. -->
     <script src="https://code.jquery.com/jquery-1.10.2.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+    <!-- added bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
     <!-- we moved the css to product.css -->
-    <link href="product.css" rel="stylesheet" />
+    <link href="product.1.css?V=1" rel="stylesheet" />
 
     <!-- we moved the javascript to product.js -->
-    <script src="product.js"></script>
+    <script src="product.1.js?V=1"></script>
 
 </head>
 
 <body>
-    <!-- we added this container in week 4 -->
+
+    <!-- we added this container in week 4. this is now bootstrap. -->
     <div class="container">
 
-        <!-- this is the nav element we made, it has three menu items. -->
+        <!--  changed navbar color. switched all buttons to secondary 2/21.  -->
         <nav class="navbar navbar-expand-lg navbar-light">
-            <a class="navbar-brand" href="#"><img src="images/logo.png" /> My Music Store</a>
-            <button class="navbar-toggler" data-toggle="collapse" data-target="#nav">
-                <i class="fas fa-th-list"></i>
-            </button>
 
-            <div class="navbar-collapse collapse" id="nav">
+            <!-- added logo 2/21 -->
+            <a class="navbar-brand" href="#"><img src="images/logo.png"> MyMusicSite</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="collapse navbar-collapse" id="nav">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="/records" class="nav-link">Records</a></li>
-                    <li class="nav-item"><a href="/cds" class="nav-link">CDs</a></li>
+                    <li class="nav-item active"><a href="/" class="nav-link"> Home</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> Records</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> CDs</a></li>
+                    <li class="nav-item"><a href="javascript:alert('Under construction');" class="nav-link"> Users</a></li>
                 </ul>
             </div>
 
-            <form class="form-inline">
-                <input class="form-control" type="search" placeholder="Album or Artist Name?" />
-                <button class="btn btn-secondary" type="submit" onclick="alert('Under construction'); return false;"><i class="fas fa-search"></i></button>
+            <!-- added search form for 2/21 -->
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Album or Artist Name?" aria-label="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit" onclick="alert('Under construction'); return false;"><i class="fas fa-search"></i></button>
             </form>
 
         </nav>
 
-        <div id="products_add" class="hidden card item-container">
-        </div>
+        <!-- changed this 2/21 to load external. -->
+        <div id="products_add" class="hidden card card-container"></div>
 
-        <!-- this is the product container, the style for this is #product_container in product.css. this is shown by default. -->
+        <!-- changed this to a card for 2/21. -->
         <div id="products_container" class="card card-container">
 
             <div class="card-header">
                 <h1>Existing Products</h1>
             </div>
-
             <div class="card-body">
                 <button id="add_btn" class="btn btn-secondary"><i class="fas fa-plus-square"></i> Add Product</button>
                 <br class="clear" />
@@ -102,60 +112,68 @@
                             <th class="edit-buttons">&nbsp;</th>
                         </tr>
                     </thead>
-                    <!-- this has a head, above, and a body, below. this repeats a <tr> tag (row) for each product. each cell <td> has a value. -->
+                    <!-- this has a head, above, and a body, below. this repeats a <tr> tag (row) for each product. each cell <td> has a value. this is now populated via JS. -->
                     <tbody>
 
                     </tbody>
                 </table>
             </div>
         </div>
+
         <!-- this is the album page. this is hidden by default with the css #album_container selector. -->
 
         <div id="album_container" class="hidden card card-container">
+
+            <!-- tag for album name -->
 
             <div class="card-header">
                 <h1 id="album_name"></h1>
             </div>
 
-            <div class="row card-body">
+            <div class="card-body">
 
-                <div class="col-sm-3">
-                    <img src="images/image1.png" id="album_img" />
+                <div class="card-text">
+                    <div class="row">
+
+                        <div class="col-sm-3 text-center">
+                            <img src="images/image1.png" id="album_img" />
+                            <!-- this is a font awesome icon -->
+                            <br class="clear" />
+                            <div id="album_title">blarga</div>
+                        </div>
+
+                        <div class="col-sm-9">
+
+                            <!-- album desc -->
+                            <p id="album_desc"></p>
+
+                            <!-- price -->
+                            <h3 id="album_price"></h3>
+
+                            <div id="album_video"></div>
+                            <br class="clear" />
+
+                            <!-- this form will let you buy items -->
+                            <form action="/products.html" method="GET" onsubmit="return false" id="product_form" class="form form-horizontal">
+                                <input type="hidden" id="inventory" value="66" />
+                                <label for="qty" class="control-label">QTY</label>
+                                <input id="qty" name="qty" value="0" placeholder="0" class="form-control" />
+                                <br class="clear">
+                                <label for="email" class="control-label">Email</label>
+                                <input id="email" name="email" type="email" class="form-control" />
+                                <br class="clear" />
+                                <button id="buy" class="btn btn-default" onclick="addToCart()"><i class="fas fa-shopping-cart"></i> BUY</button>
+                                <button id="back_to_list" class="btn btn-danger" onclick="loadProduct(0, true)"><i class="fas fa-backward"></i> Cancel</button>
+                            </form>
+
+                        </div>
+                    </div>
+
                     <br class="clear" />
-                    <em class="album-desc">
-                        <!-- this is a font awesome icon -->
-                        <i class="fas fa-music fa-right"></i>
-                        <span id="album"></span>
-                    </em>
                 </div>
-                <div class="col-sm-9">
-                    <!-- tag for album name -->
-
-
-                    <!-- album desc -->
-                    <p id="album_desc"></p>
-
-                    <!-- price -->
-                    <h3 id="album_price"></h3>
-
-                    <div id="album_video"></div>
-                    <br class="clear" />
-
-                    <!-- this form will let you buy items -->
-                    <form action="/products.html" method="GET" onsubmit="return false" id="product_form" class="form form-horizontal">
-                        <input type="hidden" id="inventory" value="66" />
-                        <label for="qty" class="control-label">QTY</label>
-                        <input id="qty" class="form-control" name="qty" value="0" placeholder="0" />
-                        <br class="clear">
-                        <label for="email" class="control-label">Email</label>
-                        <input id="email" class="form-control" name="email" type="email" />
-                        <br class="clear" />
-                        <button id="buy" class="btn btn-success" onclick="addToCart()"><i class="fas fa-shopping-cart"></i> BUY</button>
-                        <button id="back_to_list" class="btn btn-danger" onclick="loadProduct(0, true)"><i class="fas fa-backward"></i> Back</button>
-                    </form>
-                </div>
-                <br class="clear" />
             </div>
+
+            <br class="clear" />
         </div>
 
     </div>
