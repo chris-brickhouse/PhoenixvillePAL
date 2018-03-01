@@ -58,10 +58,13 @@ $(document).ready(function() {
         $('#products_container').removeClass('hidden');
     });
 
-    // image preview function
-    $(document.body).on('click', '#preview_btn', function(e) {
+    $(document.body).on('change', '#img', function(e) {
         e.preventDefault();
-        $('#image_preview').attr('src', $('#img').val()).removeClass('hidden');
+        console.log(e);
+
+        // 2/21 class - show $this for cached objects.
+        var $this = $(this);
+        $('#image_preview').attr('src', $this.val()).fadeIn('slow');
     });
 
     $(document.body).on('click', '#load_div', function() {
