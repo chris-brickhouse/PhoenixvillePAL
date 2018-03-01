@@ -52,6 +52,12 @@ $(document).ready(function() {
     // save button
     $(document.body).on('click', '#save_btn', function(e) {
         e.preventDefault();
+
+        if ($('#name').val() == '') {
+            alert('Please fill out name.');
+            return false;
+        }
+
         products.push({ id: products.length + 1, price: parseFloat($('#price').val()), name: $('#name').val(), album: $('#album').val(), desc: $('#desc').val(), img: $('#img').val(), video: $('#video').val() });
         refreshProducts();
         $('#products_add').addClass('hidden');
